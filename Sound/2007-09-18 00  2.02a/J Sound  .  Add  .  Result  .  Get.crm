@@ -1,0 +1,15 @@
+            if (
+                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) == 0 ||
+                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) == 0 
+            ) {
+                return "" ;
+            }
+            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+            char *tStopString ;
+            return DoubleToString (
+                strtod ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) , &tStopString ) +
+                strtod ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" )  -> Value ( ) , &tStopString )
+                ) ;

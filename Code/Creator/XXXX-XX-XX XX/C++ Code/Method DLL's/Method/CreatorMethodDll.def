@@ -1,0 +1,10 @@
+; CreatorMethodDll.def : Declares the module parameters for the DLL.
+
+LIBRARY      "CreatorMethodDll"
+DESCRIPTION  'CreatorMethodDll Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+
+	ExecuteMethod @2
+

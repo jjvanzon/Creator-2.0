@@ -1,0 +1,10 @@
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tX  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "X"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tB  ==  0  ||  tX  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tXValue  =  StringToDouble  (  tX  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  log  (  tXValue  )  /  log  (  tBValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;

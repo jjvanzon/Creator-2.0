@@ -1,0 +1,1100 @@
+//
+//  J  Math  .  Objects  Version  XXXX-XX-XX  XX
+//
+//      Author  :  Jan-Joost  van  Zon
+//      Date  :  September  19  ,  2007  -  September  21  ,  2007
+//
+//  -----
+
+//  General
+
+      Name  J Math Objects
+
+      Debug  Cos  .  Result
+
+//  Classes
+
+      //  Objects
+
+            Class  Number
+            Class  Boolean
+
+      //  Operators
+
+            //  Arithmetic
+
+                  Class  +
+                  Class  -
+                  Class  *
+                  Class  /
+                  Class  Mod
+                  Class  ^
+                  Class  Root
+                  Class  Log
+
+            //  Comparative
+
+                  Class  =
+                  Class  <>
+                  Class  >
+                  Class  <
+                  Class  >=
+                  Class  <=
+
+            //  Logical
+
+                  Class  Not
+                  Class  And
+                  Class  Or
+                  Class  Xor
+                  Class  Imp
+
+            //  Trigonometric
+
+                  Class  Sin
+                  Class  Cos
+                  Class  Tan
+                  Class  Atn
+
+//  Relations
+
+      //  Objects'  Interfaces  Same  As  Operations
+      
+            Number  (  -  )  1  -->  1  Number  (  Result  )
+            Boolean  (  -  )  1  -->  1  Boolean  (  Result  )
+
+      //  Arithmetic
+
+            +  (  -  )  1  -->  1  Number  (  A  )
+            +  (  -  )  1  -->  1  Number  (  B  )
+            +  (  -  )  1  -->  1  Number  (  Result  )
+
+            -  (  -  )  1  -->  1  Number  (  A  )
+            -  (  -  )  1  -->  1  Number  (  B  )
+            -  (  -  )  1  -->  1  Number  (  Result  )
+
+            *  (  -  )  1  -->  1  Number  (  A  )
+            *  (  -  )  1  -->  1  Number  (  B  )
+            *  (  -  )  1  -->  1  Number  (  Result  )
+
+            /  (  -  )  1  -->  1  Number  (  A  )
+            /  (  -  )  1  -->  1  Number  (  B  )
+            /  (  -  )  1  -->  1  Number  (  Result  )
+
+            Mod  (  -  )  1  -->  1  Number  (  A  )
+            Mod  (  -  )  1  -->  1  Number  (  B  )
+            Mod  (  -  )  1  -->  1  Number  (  Result  )
+
+            ^  (  -  )  1  -->  1  Number  (  B  )
+            ^  (  -  )  1  -->  1  Number  (  E  )
+            ^  (  -  )  1  -->  1  Number  (  Result  )
+
+            Root  (  -  )  1  -->  1  Number  (  B  )
+            Root  (  -  )  1  -->  1  Number  (  E  )
+            Root  (  -  )  1  -->  1  Number  (  Result  )
+
+            Log  (  -  )  1  -->  1  Number  (  B  )
+            Log  (  -  )  1  -->  1  Number  (  X  )
+            Log  (  -  )  1  -->  1  Number  (  Result  )
+
+      //  Comparative
+
+            =  (  -  )  1  -->  1  Number  (  A  )
+            =  (  -  )  1  -->  1  Number  (  B  )
+            =  (  -  )  1  -->  1  Number  (  Result  )
+
+            <>  (  -  )  1  -->  1  Number  (  A  )
+            <>  (  -  )  1  -->  1  Number  (  B  )
+            <>  (  -  )  1  -->  1  Number  (  Result  )
+
+            >  (  -  )  1  -->  1  Number  (  A  )
+            >  (  -  )  1  -->  1  Number  (  B  )
+            >  (  -  )  1  -->  1  Number  (  Result  )
+
+            <  (  -  )  1  -->  1  Number  (  A  )
+            <  (  -  )  1  -->  1  Number  (  B  )
+            <  (  -  )  1  -->  1  Number  (  Result  )
+
+            >=  (  -  )  1  -->  1  Number  (  A  )
+            >=  (  -  )  1  -->  1  Number  (  B  )
+            >=  (  -  )  1  -->  1  Number  (  Result  )
+
+            <=  (  -  )  1  -->  1  Number  (  A  )
+            <=  (  -  )  1  -->  1  Number  (  B  )
+            <=  (  -  )  1  -->  1  Number  (  Result  )
+
+      //  Logical
+
+            Not  (  -  )  1  -->  1  Boolean  (  X  )
+            Not  (  -  )  1  -->  1  Boolean  (  Result  )
+
+            And  (  -  )  1  -->  1  Boolean  (  A  )
+            And  (  -  )  1  -->  1  Boolean  (  B  )
+            And  (  -  )  1  -->  1  Boolean  (  Result  )
+
+            Or  (  -  )  1  -->  1  Boolean  (  A  )
+            Or  (  -  )  1  -->  1  Boolean  (  B  )
+            Or  (  -  )  1  -->  1  Boolean  (  Result  )
+
+            Xor  (  -  )  1  -->  1  Boolean  (  A  )
+            Xor  (  -  )  1  -->  1  Boolean  (  B  )
+            Xor  (  -  )  1  -->  1  Boolean  (  Result  )
+
+            Imp  (  -  )  1  -->  1  Boolean  (  A  )
+            Imp  (  -  )  1  -->  1  Boolean  (  B  )
+            Imp  (  -  )  1  -->  1  Boolean  (  Result  )
+
+      //  Trigonometric
+
+            Sin  (  -  )  1  -->  1  Number  (  X  )
+            Sin  (  -  )  1  -->  1  Number  (  Result  )
+
+            Cos  (  -  )  1  -->  1  Number  (  X  )
+            Cos  (  -  )  1  -->  1  Number  (  Result  )
+
+            Tan  (  -  )  1  -->  1  Number  (  X  )
+            Tan  (  -  )  1  -->  1  Number  (  Result  )
+
+            Atn  (  -  )  1  -->  1  Number  (  X  )
+            Atn  (  -  )  1  -->  1  Number  (  Result  )
+
+//  Attributes
+
+      //  Objects
+
+            Number  -->  Value  (  Double  )
+            Number  -->  Literal  (  String  )
+            Number  -->  Operator Type  (  Integer  )
+            Number  -->  Priority  (  Long  )
+
+            Boolean  -->  Value  (  Double  )
+            Boolean  -->  Literal  (  String  )
+            Boolean  -->  Operator Type  (  Integer  )
+            Boolean  -->  Priority  (  Long  )
+
+      //  Operators
+
+            //  Arithmetic
+
+                  +  -->  Literal  (  String  )
+                  +  -->  Symbol  (  String  )
+                  +  -->  Operator Type  (  Integer  )
+                  +  -->  Priority  (  Long  )
+
+                  -  -->  Literal  (  String  )
+                  -  -->  Symbol  (  String  )
+                  -  -->  Operator Type  (  Integer  )
+                  -  -->  Priority  (  Long  )
+
+                  *  -->  Literal  (  String  )
+                  *  -->  Symbol  (  String  )
+                  *  -->  Operator Type  (  Integer  )
+                  *  -->  Priority  (  Long  )
+
+                  /  -->  Literal  (  String  )
+                  /  -->  Symbol  (  String  )
+                  /  -->  Operator Type  (  Integer  )
+                  /  -->  Priority  (  Long  )
+
+                  Mod  -->  Literal  (  String  )
+                  Mod  -->  Symbol  (  String  )
+                  Mod  -->  Operator Type  (  Integer  )
+                  Mod  -->  Priority  (  Long  )
+
+                  ^  -->  Literal  (  String  )
+                  ^  -->  Symbol  (  String  )
+                  ^  -->  Operator Type  (  Integer  )
+                  ^  -->  Priority  (  Long  )
+
+                  Root  -->  Literal  (  String  )
+                  Root  -->  Symbol  (  String  )
+                  Root  -->  Operator Type  (  Integer  )
+                  Root  -->  Priority  (  Long  )
+
+                  Log  -->  Literal  (  String  )
+                  Log  -->  Symbol  (  String  )
+                  Log  -->  Operator Type  (  Integer  )
+                  Log  -->  Priority  (  Long  )
+
+            //  Comparative
+
+                  =  -->  Literal  (  String  )
+                  =  -->  Symbol  (  String  )
+                  =  -->  Operator Type  (  Integer  )
+                  =  -->  Priority  (  Long  )
+
+                  <>  -->  Literal  (  String  )
+                  <>  -->  Symbol  (  String  )
+                  <>  -->  Operator Type  (  Integer  )
+                  <>  -->  Priority  (  Long  )
+
+                  >  -->  Literal  (  String  )
+                  >  -->  Symbol  (  String  )
+                  >  -->  Operator Type  (  Integer  )
+                  >  -->  Priority  (  Long  )
+
+                  <  -->  Literal  (  String  )
+                  <  -->  Symbol  (  String  )
+                  <  -->  Operator Type  (  Integer  )
+                  <  -->  Priority  (  Long  )
+
+                  >=  -->  Literal  (  String  )
+                  >=  -->  Symbol  (  String  )
+                  >=  -->  Operator Type  (  Integer  )
+                  >=  -->  Priority  (  Long  )
+
+                  <=  -->  Literal  (  String  )
+                  <=  -->  Symbol  (  String  )
+                  <=  -->  Operator Type  (  Integer  )
+                  <=  -->  Priority  (  Long  )
+
+            //  Logical
+
+                  Not  -->  Literal  (  String  )
+                  Not  -->  Symbol  (  String  )
+                  Not  -->  Operator Type  (  Integer  )
+                  Not  -->  Priority  (  Long  )
+
+                  And  -->  Literal  (  String  )
+                  And  -->  Symbol  (  String  )
+                  And  -->  Operator Type  (  Integer  )
+                  And  -->  Priority  (  Long  )
+
+                  Or  -->  Literal  (  String  )
+                  Or  -->  Symbol  (  String  )
+                  Or  -->  Operator Type  (  Integer  )
+                  Or  -->  Priority  (  Long  )
+
+                  Xor  -->  Literal  (  String  )
+                  Xor  -->  Symbol  (  String  )
+                  Xor  -->  Operator Type  (  Integer  )
+                  Xor  -->  Priority  (  Long  )
+
+                  Imp  -->  Literal  (  String  )
+                  Imp  -->  Symbol  (  String  )
+                  Imp  -->  Operator Type  (  Integer  )
+                  Imp  -->  Priority  (  Long  )
+
+            //  Trigonometric
+
+                  Sin  -->  Literal  (  String  )
+                  Sin  -->  Symbol  (  String  )
+                  Sin  -->  Operator Type  (  Integer  )
+                  Sin  -->  Priority  (  Long  )
+
+                  Cos  -->  Literal  (  String  )
+                  Cos  -->  Symbol  (  String  )
+                  Cos  -->  Operator Type  (  Integer  )
+                  Cos  -->  Priority  (  Long  )
+
+                  Tan  -->  Literal  (  String  )
+                  Tan  -->  Symbol  (  String  )
+                  Tan  -->  Operator Type  (  Integer  )
+                  Tan  -->  Priority  (  Long  )
+
+                  Atn  -->  Literal  (  String  )
+                  Atn  -->  Symbol  (  String  )
+                  Atn  -->  Operator Type  (  Integer  )
+                  Atn  -->  Priority  (  Long  )
+
+//  Methods
+
+      //  Objects
+
+            //  Number
+
+                  Method  Override  Number  .  Result  .  Get
+                        return  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                  End  Method
+
+                  Method  Override  Number  .  Literal  .  Get
+                        CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                        return  tItem  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                  End  Method
+
+                  Method  Override  Number  .  Operator Type  .  Get
+                        return  "1"  ;
+                  End  Method
+
+                  Method  Override  Number  .  Priority  .  Get
+                        return  "15"  ;  //  Value  Priority
+                  End  Method
+
+            //  Boolean
+
+                  Method  Override  Boolean  .  Result  .  Get
+                        return  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                  End  Method
+
+                  Method  Override  Boolean  .  Literal  .  Get
+                        CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                        return  tItem  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                  End  Method
+
+                  Method  Override  Boolean  .  Operator Type  .  Get
+                        return  "2"  ;
+                  End  Method
+
+                  Method  Override  Boolean  .  Priority  .  Get
+                        return  "15"  ;  //  Value  Priority
+                  End  Method
+
+      //  Operations
+
+            //  Arithmetic
+
+                  //  +
+
+                        Method  Override  +  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  tAValue  +  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  +  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  +  .  Symbol  .  Get
+                              return  "+"  ;
+                        End  Method
+
+                        Method  Override  +  .  Operator Type  .  Get
+                              return  "3"  ;
+                        End  Method
+
+                        Method  Override  +  .  Priority  .  Get
+                              return  "11"  ;  //  Add  &  Substract  Priority
+                        End  Method
+
+                  //  -
+
+                        Method  Override  -  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  tAValue  -  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  -  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  -  .  Symbol  .  Get
+                              return  "-"  ;
+                        End  Method
+
+                        Method  Override  -  .  Operator Type  .  Get
+                              return  "4"  ;
+                        End  Method
+
+                        Method  Override  -  .  Priority  .  Get
+                              return  "11"  ;  //  Add  &  Substract  Priority
+                        End  Method
+
+
+                  //  *
+
+                        Method  Override  *  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  tAValue  *  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  *  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  *  .  Symbol  .  Get
+                              return  "*"  ;
+                        End  Method
+
+                        Method  Override  *  .  Operator Type  .  Get
+                              return  "5"  ;
+                        End  Method
+
+                        Method  Override  *  .  Priority  .  Get
+                              return  "12"  ;  //  Multiply  &  Divide  Priority
+                        End  Method
+
+                  //  /
+
+                        Method  Override  /  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  tAValue  /  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  /  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  /  .  Symbol  .  Get
+                              return  "/"  ;
+                        End  Method
+
+                        Method  Override  /  .  Operator Type  .  Get
+                              return  "6"  ;
+                        End  Method
+
+                        Method  Override  /  .  Priority  .  Get
+                              return  "12"  ;  //  Multiply  &  Divide  Priority
+                        End  Method
+
+                  //  Mod
+
+                        Method  Override  Mod  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  fmod  (  tAValue  ,  tBValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Mod  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Mod  .  Symbol  .  Get
+                              return  "Mod"  ;
+                        End  Method
+
+                        Method  Override  Mod  .  Operator Type  .  Get
+                              return  "7"  ;
+                        End  Method
+
+                        Method  Override  Mod  .  Priority  .  Get
+                              return  "13"  ;  //  Powers  Priority
+                        End  Method
+
+                  //  ^
+
+                        Method  Override  ^  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tE  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "E"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tB  ==  0  ||  tE  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tEValue  =  StringToDouble  (  tE  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  pow  (  tBValue  ,  tEValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  ^  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  ^  .  Symbol  .  Get
+                              return  "^"  ;
+                        End  Method
+
+                        Method  Override  ^  .  Operator Type  .  Get
+                              return  "8"  ;
+                        End  Method
+
+                        Method  Override  ^  .  Priority  .  Get
+                              return  "13"  ;  //  Powers  Priority
+                        End  Method
+
+                  //  Root
+
+                        Method  Override  Root  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tE  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "E"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tB  ==  0  ||  tE  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tEValue  =  StringToDouble  (  tE  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  pow  (  tBValue  ,  1  /  tEValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  ^  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Root  .  Symbol  .  Get
+                              return  "Root"  ;
+                        End  Method
+
+                        Method  Override  ^  .  Operator Type  .  Get
+                              return  "9"  ;
+                        End  Method
+
+                        Method  Override  ^  .  Priority  .  Get
+                              return  "13"  ;  //  Powers  Priority
+                        End  Method
+
+                  //  Log
+
+                        Method  Override  Log  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tX  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "X"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tB  ==  0  ||  tX  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tXValue  =  StringToDouble  (  tX  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  log  (  tXValue  )  /  log  (  tBValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Log  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Log  .  Symbol  .  Get
+                              return  "Log"  ;
+                        End  Method
+
+                        Method  Override  Log  .  Operator Type  .  Get
+                              return  "10"  ;
+                        End  Method
+
+                        Method  Override  Log  .  Priority  .  Get
+                              return  "13"  ;  //  Powers  Priority
+                        End  Method
+
+            //  Comparative
+
+                  //  =
+
+                        Method  Override  =  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  ==  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  =  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  =  .  Symbol  .  Get
+                              return  "="  ;
+                        End  Method
+
+                        Method  Override  =  .  Operator Type  .  Get
+                              return  "11"  ;
+                        End  Method
+
+                        Method  Override  =  .  Priority  .  Get
+                              return  "10"  ;  //  Comparative  Priority
+                        End  Method
+
+                  //  <>
+
+                        Method  Override  <>  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  !=  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  <>  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  <>  .  Symbol  .  Get
+                              return  "<>"  ;
+                        End  Method
+
+                        Method  Override  <>  .  Operator Type  .  Get
+                              return  "12"  ;
+                        End  Method
+
+                        Method  Override  <>  .  Priority  .  Get
+                              return  "10"  ;  //  Comparative  Priority
+                        End  Method
+
+                  //  <
+
+                        Method  Override  <  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  <  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  <  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  <  .  Symbol  .  Get
+                              return  "<"  ;
+                        End  Method
+
+                        Method  Override  <  .  Operator Type  .  Get
+                              return  "13"  ;
+                        End  Method
+
+                        Method  Override  <  .  Priority  .  Get
+                              return  "10"  ;  //  Comparative  Priority
+                        End  Method
+
+                  //  >
+
+                        Method  Override  >  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  >  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  >  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  >  .  Symbol  .  Get
+                              return  ">"  ;
+                        End  Method
+
+                        Method  Override  >  .  Operator Type  .  Get
+                              return  "14"  ;
+                        End  Method
+
+                        Method  Override  >  .  Priority  .  Get
+                              return  "10"  ;  //  Comparative  Priority
+                        End  Method
+
+                  //  <=
+
+                        Method  Override  <=  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  <=  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  <=  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  <=  .  Symbol  .  Get
+                              return  "<="  ;
+                        End  Method
+
+                        Method  Override  <=  .  Operator Type  .  Get
+                              return  "15"  ;
+                        End  Method
+
+                        Method  Override  <=  .  Priority  .  Get
+                              return  "10"  ;  //  Comparative  Priority
+                        End  Method
+
+                  //  >=
+
+                        Method  Override  >=  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tAValue  =  StringToDouble  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              double  tBValue  =  StringToDouble  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  >=  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  >=  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  >=  .  Symbol  .  Get
+                              return  ">="  ;
+                        End  Method
+
+                        Method  Override  >=  .  Operator Type  .  Get
+                              return  "16"  ;
+                        End  Method
+
+                        Method  Override  >=  .  Priority  .  Get
+                              return  "10"  ;  //  Comparative  Priority
+                        End  Method
+
+            //  Comparative
+
+                  //  Not
+
+                        Method  Override  Not  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tX  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "X"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tX  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              bool  tXValue  =  StringToBoolean  (  tX  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  ! tXValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Not  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Not  .  Symbol  .  Get
+                              return  "Not"  ;
+                        End  Method
+
+                        Method  Override  Not  .  Operator Type  .  Get
+                              return  "17"  ;
+                        End  Method
+
+                        Method  Override  Not  .  Priority  .  Get
+                              return  "9"  ;  //  Logical  Not  Priority
+                        End  Method
+
+                  //  And
+
+                        Method  Override  And  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              bool  tAValue  =  StringToBoolean  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              bool  tBValue  =  StringToBoolean  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  &&  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  And  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  And  .  Symbol  .  Get
+                              return  "And"  ;
+                        End  Method
+
+                        Method  Override  And  .  Operator Type  .  Get
+                              return  "18"  ;
+                        End  Method
+
+                        Method  Override  And  .  Priority  .  Get
+                              return  "8"  ;  //  Logical  And  Priority
+                        End  Method
+
+                  //  Or
+
+                        Method  Override  Or  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              bool  tAValue  =  StringToBoolean  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              bool  tBValue  =  StringToBoolean  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  ||  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Or  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Or  .  Symbol  .  Get
+                              return  "Or"  ;
+                        End  Method
+
+                        Method  Override  Or  .  Operator Type  .  Get
+                              return  "18"  ;
+                        End  Method
+
+                        Method  Override  Or  .  Priority  .  Get
+                              return  "7"  ;  //  Logical  Or  Priority
+                        End  Method
+
+                  //  Xor
+
+                        Method  Override  Xor  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              bool  tAValue  =  StringToBoolean  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              bool  tBValue  =  StringToBoolean  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  &&  !  tBValue  ||  !  tAValue  &&  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Xor  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Xor  .  Symbol  .  Get
+                              return  "Xor"  ;
+                        End  Method
+
+                        Method  Override  Xor  .  Operator Type  .  Get
+                              return  "19"  ;
+                        End  Method
+
+                        Method  Override  Xor  .  Priority  .  Get
+                              return  "6"  ;  //  Logical  Xor  Priority
+                        End  Method
+
+                  //  Imp
+
+                        Method  Override  Imp  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              bool  tAValue  =  StringToBoolean  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              bool  tBValue  =  StringToBoolean  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  !  tAValue  ||  tAValue  &&  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Imp  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Imp  .  Symbol  .  Get
+                              return  "Imp"  ;
+                        End  Method
+
+                        Method  Override  Imp  .  Operator Type  .  Get
+                              return  "20"  ;
+                        End  Method
+
+                        Method  Override  Imp  .  Priority  .  Get
+                              return  "5"  ;  //  Logical  Imp  Priority
+                        End  Method
+
+            //  Trigonometric
+
+                  //  Sin
+
+                        Method  Override  Sin  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tX  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "X"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tX  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tXValue  =  StringToDouble  (  tX  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  sin  (  tXValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Sin  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Sin  .  Symbol  .  Get
+                              return  "Sin"  ;
+                        End  Method
+
+                        Method  Override  Sin  .  Operator Type  .  Get
+                              return  "21"  ;
+                        End  Method
+
+                        Method  Override  Sin  .  Priority  .  Get
+                              return  "0"  ;  //  Trigonometric  Priority
+                        End  Method
+
+                  //  Cos
+
+                        Method  Override  Cos  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tX  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "X"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tX  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tXValue  =  StringToDouble  (  tX  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  cos  (  tXValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Cos  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Cos  .  Symbol  .  Get
+                              return  "Cos"  ;
+                        End  Method
+
+                        Method  Override  Cos  .  Operator Type  .  Get
+                              return  "21"  ;
+                        End  Method
+
+                        Method  Override  Cos  .  Priority  .  Get
+                              return  "0"  ;  //  Trigonometric  Priority
+                        End  Method
+
+                  //  Tan
+
+                        Method  Override  Tan  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tX  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "X"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tX  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tXValue  =  StringToDouble  (  tX  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  tan  (  tXValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Tan  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Tan  .  Symbol  .  Get
+                              return  "Tan"  ;
+                        End  Method
+
+                        Method  Override  Tan  .  Operator Type  .  Get
+                              return  "21"  ;
+                        End  Method
+
+                        Method  Override  Tan  .  Priority  .  Get
+                              return  "0"  ;  //  Trigonometric  Priority
+                        End  Method
+
+                  //  Atn
+
+                        Method  Override  Atn  .  Result  .  Get
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tX  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "X"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tX  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tXValue  =  StringToDouble  (  tX  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  atan  (  tXValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;
+                        End  Method
+
+                        Method  Override  Atn  .  Literal  .  Get
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                        End  Method
+
+                        Method  Override  Atn  .  Symbol  .  Get
+                              return  "Atn"  ;
+                        End  Method
+
+                        Method  Override  Atn  .  Operator Type  .  Get
+                              return  "21"  ;
+                        End  Method
+
+                        Method  Override  Atn  .  Priority  .  Get
+                              return  "0"  ;  //  Trigonometric  Priority
+                        End  Method

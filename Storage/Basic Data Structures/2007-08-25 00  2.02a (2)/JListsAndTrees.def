@@ -1,0 +1,7 @@
+; JListsAndTrees.def : Declares the module parameters for the DLL.
+
+LIBRARY      "JListsAndTrees"
+DESCRIPTION  'JListsAndTrees Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here

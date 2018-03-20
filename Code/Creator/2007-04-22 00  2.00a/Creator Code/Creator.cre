@@ -1,0 +1,53 @@
+//  Creator Version  2007-04-22 00  2.00a
+
+
+//  Classes
+
+        Class  Structure
+        Class  Class
+        Class  Class Attribute
+        Class  Relation
+        Class  Relation Class
+        Class  Item
+        Class  Item Attribute
+        Class  Related Item
+        Class  Related List
+
+//  Attributes
+
+        Class  -->  Class Name  (  String  )
+
+        Class Attribute  -->  Name  (  String  )
+        Class Attribute  -->  Type  (  String  )
+
+        Relation Class  -->  Plural  (  Boolean  )
+        Relation Class  -->  Name  (  String  )
+
+        Item Attribute  -->  Value  (  String  )
+
+//  Relations
+
+        Structure  (  Structure  )    1  -->  n    Class  (  Classes  )
+        Structure  (  Structure  )    1  -->  n    Relation  (  Relations  )
+
+        Class  (  Class  )    1  -->  n    Class Attribute  (  Class Attributes  )
+
+        Relation  (  Relation ( as relation class a )  )    1  -->  1    Relation Class  (  Relation Class A  )
+        Relation  (  Relation ( as relation class b )  )    1  -->  1    Relation Class  (  Relation Class B  )
+
+        Relation Class  (  As Relation Class  )    n  -->  1    Class  (  Class  )
+
+        Item  (  As Item  )    n  -->  1    Class  (  Class  )
+        Item  (  Item  )    1  -->  n    Item Attribute  (  Item Attributes  )
+        Item  (  Parent Item  )    1  -->  n    Related Item  (  Related Items  )
+        Item  (  Item  )    1  -->  n    Related List  (  Related Lists  )
+
+        Item Attribute  (  As Item Attribute  )    n  -->  1    Class Attribute  (  Class Attribute  )    //  Backward relation ridiculous to maintain
+
+        Related Item  (  As Related Item  )    n  -->  1    Relation Class  (  Relation Class  )
+        Related Item  (  As Related Item  )    n  -->  1    Item  (  Item  )
+
+        Related List  (  As Relation List  )    n  -->  1    Relation Class  (  Relation Class  )
+        Related List  (  As Related List Item  )    n  -->  n    Item  (  Items  )    //  Backward relation ridiculous to maintain
+
+        Class  (  -  )    1  -->  n  Relation Class  (  Related Classes  )

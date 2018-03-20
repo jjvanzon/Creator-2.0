@@ -1,0 +1,5 @@
+                  //  Translate  ...
+                  /*
+                  TopInScreen = Top
+                  If Not Parent Is Nothing Then TopInScreen = TopInScreen + Parent.TopInScreen
+                  */

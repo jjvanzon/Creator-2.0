@@ -1,0 +1,5 @@
+                  //  Translate  ...
+                  /*
+                  LeftInScreen = Left
+                  If Not Parent Is Nothing Then LeftInScreen = LeftInScreen + Parent.LeftInScreen
+                  */

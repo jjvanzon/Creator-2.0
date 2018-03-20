@@ -1,0 +1,7 @@
+            // If Operand Is Nothing Then Exit Property
+                if ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand" ) -> Item ( ) == 0 ) { return "" ; }
+            // Operand.Time = Time
+                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+            // Result = Operand.Result
+                return aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ;

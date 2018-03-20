@@ -1,0 +1,24 @@
+                  //  If Level Is Nothing Then Exit Property
+                        CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                        CItem*  tBase  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        CItem*  tLevel  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Level"  )  ->  Item  (  )  ;
+                        CItem*  tTimeDivider  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Time Divider"  )  ->  Item  (  )  ;
+                        double  tTime  =  StringToDouble  ( tBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  -> Value  (  )  )  ;
+                        if  (  tLevel  ==  0  )  {  return  ""  ;  }  
+                  //  Dim tTimeDivider As Double
+                        double  tTimeDividerResult  =  1  ;
+                  //  If Not TimeDivider Is Nothing Then
+                        if  (  tTimeDivider  !=  0  )  {
+                              //  TimeDivider.Time = Time
+                                    CItem*  tTimeDividerBase  =  tTimeDivider  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                                    tTimeDividerBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  )  )  ;
+                              //  tTimeDivider = TimeDivider.Result
+                                    tTimeDividerResult  =  StringToDouble  ( tTimeDivider  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )  ;
+                              //  If tTimeDivider = 0 Then tTimeDivider = 1
+                                    if  (  tTimeDividerResult  ==  0  )  {  tTimeDividerResult  =  1  ;  }
+                        }
+                  //  Level.Time = Time + tTimeDivider
+                        CItem*  tLevelBase  =  tLevel  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        tLevelBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  /  tTimeDividerResult  )  )  ;
+                  //  Result = Level.Result
+                        return  tLevel  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  ->  Value  (  )  ;

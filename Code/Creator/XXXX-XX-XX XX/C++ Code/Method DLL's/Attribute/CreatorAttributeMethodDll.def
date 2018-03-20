@@ -1,0 +1,10 @@
+; CreatorAttributeMethodDll.def : Declares the module parameters for the DLL.
+
+LIBRARY      "CreatorAttributeMethodDll"
+DESCRIPTION  'CreatorAttributeMethodDll Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+
+	OverrideGet @2
+	OverrideSet @3

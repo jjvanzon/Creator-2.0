@@ -1,0 +1,906 @@
+//
+//  J  Math  .  Objects
+//
+//      Author  :  Jan-Joost  van  Zon
+//      Date  :  September  19  ,  2007
+//
+//  -----
+
+//  General
+
+      Name  J Math Objects
+
+//  Classes
+
+      //  Objects
+
+            Class  Long
+            Class  Double
+            Class  Boolean
+
+      //  Operators
+
+            //  Arithmetic
+
+                  //  +
+
+                        Class  Long + Long
+                        Class  Long + Double
+                        Class  Double + Long
+                        Class  Double + Double
+
+                  //  -
+
+                        Class  Long - Long
+                        Class  Long - Double
+                        Class  Double - Long
+                        Class  Double - Double
+
+                  //  *
+
+                        Class  Long * Long
+                        Class  Long * Double
+                        Class  Double * Long
+                        Class  Double * Double
+
+                  //  /
+
+                        Class  Long / Long
+                        Class  Long / Double
+                        Class  Double / Long
+                        Class  Double / Double
+
+                  //  \
+
+                        Class  Long \ Long
+                        Class  Long \ Double
+                        Class  Double \ Long
+                        Class  Double \ Double
+
+                  //  Mod
+
+                        Class  Long Mod Long
+                        Class  Long Mod Double
+                        Class  Double Mod Long
+                        Class  Double Mod Double
+
+                  //  ^
+
+                        Class  Long ^ Long
+                        Class  Long ^ Double
+                        Class  Double ^ Long
+                        Class  Double ^ Double
+
+                  //  Root
+
+                        Class  Long Root Long
+                        Class  Long Root Double
+                        Class  Double Root Long
+                        Class  Double Root Double
+
+                  //  Log
+
+                        Class  Long Log Long
+                        Class  Long Log Double
+                        Class  Double Log Long
+                        Class  Double Log Double
+
+            //  Comparative
+
+                  //  =
+
+                        Class  Long = Long
+                        Class  Long = Double
+                        Class  Double = Long
+                        Class  Double = Double
+
+                  //  <>
+
+                        Class  Long <> Long
+                        Class  Long <> Double
+                        Class  Double <> Long
+                        Class  Double <> Double
+
+                  //  <
+
+                        Class  Long < Long
+                        Class  Long < Double
+                        Class  Double < Long
+                        Class  Double < Double
+
+                  //  >
+
+                        Class  Long > Long
+                        Class  Long > Double
+                        Class  Double > Long
+                        Class  Double > Double
+
+                  //  <=
+
+                        Class  Long <= Long
+                        Class  Long <= Double
+                        Class  Double <= Long
+                        Class  Double <= Double
+
+                  //  >=
+
+                        Class  Long >= Long
+                        Class  Long >= Double
+                        Class  Double >= Long
+                        Class  Double >= Double
+
+            //  Logical
+
+                  Class  Logical Not
+                  Class  Logical And
+                  Class  Logical Or
+                  Class  Logical Xor
+                  Class  Logical Imp
+
+            //  Bit
+
+                  Class  Bitwise Not
+                  Class  Bitwise And
+                  Class  Bitwise Or
+                  Class  Bitwise Xor
+                  Class  Bitwise Imp
+
+            //  Trigonometric
+
+                  Class  Sin
+                  Class  Cos
+                  Class  Tan
+                  Class  Atn
+
+            //  Conversions
+
+                  Class  Long ( Double )
+                  Class  Double ( Long )
+
+//  Relations
+
+      //  Arithmetic
+
+            //  +
+
+                  Long + Long  1  -->  1  Long  (  A  )
+                  Long + Long  1  -->  1  Long  (  B  )
+                  Long + Long  1  -->  1  Long  (  Result  )
+
+                  Long + Double  1  -->  1  Long  (  A  )
+                  Long + Double  1  -->  1  Double  (  B  )
+                  Long + Double  1  -->  1  Double  (  Result  )
+
+                  Double + Long  1  -->  1  Double  (  A  )
+                  Double + Long  1  -->  1  Long  (  B  )
+                  Double + Long  1  -->  1  Double  (  Result  )
+
+                  Double + Double  1  -->  1  Double  (  A  )
+                  Double + Double  1  -->  1  Double  (  B  )
+                  Double + Double  1  -->  1  Double  (  Result  )
+
+            //  -
+
+                  Long - Long  1  -->  1  Long  (  A  )
+                  Long - Long  1  -->  1  Long  (  B  )
+                  Long - Long  1  -->  1  Long  (  Result  )
+
+                  Long - Double  1  -->  1  Long  (  A  )
+                  Long - Double  1  -->  1  Double  (  B  )
+                  Long - Double  1  -->  1  Double  (  Result  )
+
+                  Double - Long  1  -->  1  Double  (  A  )
+                  Double - Long  1  -->  1  Long  (  B  )
+                  Double - Long  1  -->  1  Double  (  Result  )
+
+                  Double - Double  1  -->  1  Double  (  A  )
+                  Double - Double  1  -->  1  Double  (  B  )
+                  Double - Double  1  -->  1  Double  (  Result  )
+
+            //  *
+
+                  Long * Long  1  -->  1  Long  (  A  )
+                  Long * Long  1  -->  1  Long  (  B  )
+                  Long * Long  1  -->  1  Long  (  Result  )
+
+                  Long * Double  1  -->  1  Long  (  A  )
+                  Long * Double  1  -->  1  Double  (  B  )
+                  Long * Double  1  -->  1  Double  (  Result  )
+
+                  Double * Long  1  -->  1  Double  (  A  )
+                  Double * Long  1  -->  1  Long  (  B  )
+                  Double * Long  1  -->  1  Double  (  Result  )
+
+                  Double * Double  1  -->  1  Double  (  A  )
+                  Double * Double  1  -->  1  Double  (  B  )
+                  Double * Double  1  -->  1  Double  (  Result  )
+
+//  ...
+
+            //  /
+
+                  Long / Long  1  -->  1  Long  (  A  )
+                  Long / Long  1  -->  1  Long  (  B  )
+
+                  Long / Double  1  -->  1  Long  (  A  )
+                  Long / Double  1  -->  1  Double  (  B  )
+
+                  Double / Long  1  -->  1  Double  (  A  )
+                  Double / Long  1  -->  1  Long  (  B  )
+
+                  Double / Double  1  -->  1  Double  (  A  )
+                  Double / Double  1  -->  1  Double  (  B  )
+
+            //  \
+
+                  Long \ Long  1  -->  1  Long  (  A  )
+                  Long \ Long  1  -->  1  Long  (  B  )
+
+                  Long \ Double  1  -->  1  Long  (  A  )
+                  Long \ Double  1  -->  1  Double  (  B  )
+
+                  Double \ Long  1  -->  1  Double  (  A  )
+                  Double \ Long  1  -->  1  Long  (  B  )
+
+                  Double \ Double  1  -->  1  Double  (  A  )
+                  Double \ Double  1  -->  1  Double  (  B  )
+
+            //  Mod
+
+                  Long Mod Long  1  -->  1  Long  (  A  )
+                  Long Mod Long  1  -->  1  Long  (  B  )
+
+                  Long Mod Double  1  -->  1  Long  (  A  )
+                  Long Mod Double  1  -->  1  Double  (  B  )
+
+                  Double Mod Long  1  -->  1  Double  (  A  )
+                  Double Mod Long  1  -->  1  Long  (  B  )
+
+                  Double Mod Double  1  -->  1  Double  (  A  )
+                  Double Mod Double  1  -->  1  Double  (  B  )
+
+            //  ^
+
+                  Long ^ Long  1  -->  1  Long  (  A  )
+                  Long ^ Long  1  -->  1  Long  (  B  )
+
+                  Long ^ Double  1  -->  1  Long  (  A  )
+                  Long ^ Double  1  -->  1  Double  (  B  )
+
+                  Double ^ Long  1  -->  1  Double  (  A  )
+                  Double ^ Long  1  -->  1  Long  (  B  )
+
+                  Double ^ Double  1  -->  1  Double  (  A  )
+                  Double ^ Double  1  -->  1  Double  (  B  )
+
+            //  Root
+
+                  Long Root Long  1  -->  1  Long  (  A  )
+                  Long Root Long  1  -->  1  Long  (  B  )
+
+                  Long Root Double  1  -->  1  Long  (  A  )
+                  Long Root Double  1  -->  1  Double  (  B  )
+
+                  Double Root Long  1  -->  1  Double  (  A  )
+                  Double Root Long  1  -->  1  Long  (  B  )
+
+                  Double Root Double  1  -->  1  Double  (  A  )
+                  Double Root Double  1  -->  1  Double  (  B  )
+
+            //  Log
+
+                  Long Log Long  1  -->  1  Long  (  A  )
+                  Long Log Long  1  -->  1  Long  (  B  )
+
+                  Long Log Double  1  -->  1  Long  (  A  )
+                  Long Log Double  1  -->  1  Double  (  B  )
+
+                  Double Log Long  1  -->  1  Double  (  A  )
+                  Double Log Long  1  -->  1  Long  (  B  )
+
+                  Double Log Double  1  -->  1  Double  (  A  )
+                  Double Log Double  1  -->  1  Double  (  B  )
+
+      //  Comparative
+
+            //  =
+
+                  Long = Long  1  -->  1  Boolean  (  A  )
+                  Long = Long  1  -->  1  Boolean  (  B  )
+
+                  Long = Double  1  -->  1  Boolean  (  A  )
+                  Long = Double  1  -->  1  Boolean  (  B  )
+
+                  Double = Long  1  -->  1  Boolean  (  A  )
+                  Double = Long  1  -->  1  Boolean  (  B  )
+
+                  Double = Double  1  -->  1  Boolean  (  A  )
+                  Double = Double  1  -->  1  Boolean  (  B  )
+
+            //  <>
+
+                  Long <> Long  1  -->  1  Boolean  (  A  )
+                  Long <> Long  1  -->  1  Boolean  (  B  )
+
+                  Long <> Double  1  -->  1  Boolean  (  A  )
+                  Long <> Double  1  -->  1  Boolean  (  B  )
+
+                  Double <> Long  1  -->  1  Boolean  (  A  )
+                  Double <> Long  1  -->  1  Boolean  (  B  )
+
+                  Double <> Double  1  -->  1  Boolean  (  A  )
+                  Double <> Double  1  -->  1  Boolean  (  B  )
+
+            //  <
+
+                  Long < Long  1  -->  1  Boolean  (  A  )
+                  Long < Long  1  -->  1  Boolean  (  B  )
+
+                  Long < Double  1  -->  1  Boolean  (  A  )
+                  Long < Double  1  -->  1  Boolean  (  B  )
+
+                  Double < Long  1  -->  1  Boolean  (  A  )
+                  Double < Long  1  -->  1  Boolean  (  B  )
+
+                  Double < Double  1  -->  1  Boolean  (  A  )
+                  Double < Double  1  -->  1  Boolean  (  B  )
+
+            //  >
+
+                  Long > Long  1  -->  1  Boolean  (  A  )
+                  Long > Long  1  -->  1  Boolean  (  B  )
+
+                  Long > Double  1  -->  1  Boolean  (  A  )
+                  Long > Double  1  -->  1  Boolean  (  B  )
+
+                  Double > Long  1  -->  1  Boolean  (  A  )
+                  Double > Long  1  -->  1  Boolean  (  B  )
+
+                  Double > Double  1  -->  1  Boolean  (  A  )
+                  Double > Double  1  -->  1  Boolean  (  B  )
+
+            //  <=
+
+                  Long <= Long  1  -->  1  Boolean  (  A  )
+                  Long <= Long  1  -->  1  Boolean  (  B  )
+
+                  Long <= Double  1  -->  1  Boolean  (  A  )
+                  Long <= Double  1  -->  1  Boolean  (  B  )
+
+                  Double <= Long  1  -->  1  Boolean  (  A  )
+                  Double <= Long  1  -->  1  Boolean  (  B  )
+
+                  Double <= Double  1  -->  1  Boolean  (  A  )
+                  Double <= Double  1  -->  1  Boolean  (  B  )
+
+            //  >
+
+                  Long >= Long  1  -->  1  Boolean  (  A  )
+                  Long >= Long  1  -->  1  Boolean  (  B  )
+
+                  Long >= Double  1  -->  1  Boolean  (  A  )
+                  Long >= Double  1  -->  1  Boolean  (  B  )
+
+                  Double >= Long  1  -->  1  Boolean  (  A  )
+                  Double >= Long  1  -->  1  Boolean  (  B  )
+
+                  Double >= Double  1  -->  1  Boolean  (  A  )
+                  Double >= Double  1  -->  1  Boolean  (  B  )
+
+      //  Boolean
+
+            Logical Not  1  -->  1  Boolean  (  X  )
+
+            Logical And  1  -->  1  Boolean  (  A  )
+            Logical And  1  -->  1  Boolean  (  B  )
+
+            Logical Or  1  -->  1  Boolean  (  A  )
+            Logical Or  1  -->  1  Boolean  (  B  )
+
+            Logical Xor  1  -->  1  Boolean  (  A  )
+            Logical Xor  1  -->  1  Boolean  (  B  )
+
+            Logical Imp  1  -->  1  Boolean  (  A  )
+            Logical Imp  1  -->  1  Boolean  (  B  )
+
+      //  Bitwise
+
+            Bitwise Not  1  -->  1  Boolean  (  A  )
+            Bitwise Not  1  -->  1  Boolean  (  B  )
+
+            Bitwise And  1  -->  1  Boolean  (  A  )
+            Bitwise And  1  -->  1  Boolean  (  B  )
+
+            Bitwise Or  1  -->  1  Boolean  (  A  )
+            Bitwise Or  1  -->  1  Boolean  (  B  )
+
+            Bitwise Xor  1  -->  1  Boolean  (  A  )
+            Bitwise Xor  1  -->  1  Boolean  (  B  )
+
+            Bitwise Imp  1  -->  1  Boolean  (  A  )
+            Bitwise Imp  1  -->  1  Boolean  (  B  )
+
+      //  Trigonometric
+
+            Sin  1  -->  1  Double  (  X  )
+            Cos  1  -->  1  Double  (  X  )
+            Tan  1  -->  1  Double  (  X  )
+            Atn  1  -->  1  Double  (  X  )
+
+      //  Conversions
+
+            Long ( Double )  -->  Double  (  X  )
+            Double ( Long )  -->  Long  (  X  )
+
+//  Attributes
+
+      //  Objects
+
+            Long  -->  Value  (  Long  )
+            Long  -->  Literal  (  String  )
+            Long  -->  Operator Type  (  Integer  )
+            Long  -->  Priority  (  Long  )
+
+            Double  -->  Value  (  Double  )
+            Double  -->  Literal  (  String  )
+            Double  -->  Operator Type  (  Integer  )
+            Double  -->  Priority  (  Long  )
+
+      //  Operators
+
+            //  Arithmetic
+
+                  //  +
+      
+                        Long + Long  -->  Literal  (  String  )
+                        Long + Long  -->  Symbol  (  String  )
+                        Long + Long  -->  Operator Type  (  Integer  )
+                        Long + Long  -->  Priority  (  Long  )
+
+                        Long + Double  -->  Literal  (  String  )
+                        Long + Double  -->  Symbol  (  String  )
+                        Long + Double  -->  Operator Type  (  Integer  )
+                        Long + Double  -->  Priority  (  Long  )
+
+                        Double + Long  -->  Literal  (  String  )
+                        Double + Long  -->  Symbol  (  String  )
+                        Double + Long  -->  Operator Type  (  Integer  )
+                        Double + Long  -->  Priority  (  Long  )
+
+                        Double + Double  -->  Literal  (  String  )
+                        Double + Double  -->  Symbol  (  String  )
+                        Double + Double  -->  Operator Type  (  Integer  )
+                        Double + Double  -->  Priority  (  Long  )
+
+                  //  -
+
+                        Long - Long  -->  Literal  (  String  )
+                        Long - Long  -->  Symbol  (  String  )
+                        Long - Long  -->  Operator Type  (  Integer  )
+                        Long - Long  -->  Priority  (  Long  )
+
+                        Long - Double  -->  Literal  (  String  )
+                        Long - Double  -->  Symbol  (  String  )
+                        Long - Double  -->  Operator Type  (  Integer  )
+                        Long - Double  -->  Priority  (  Long  )
+
+                        Double - Long  -->  Literal  (  String  )
+                        Double - Long  -->  Symbol  (  String  )
+                        Double - Long  -->  Operator Type  (  Integer  )
+                        Double - Long  -->  Priority  (  Long  )
+
+                        Double - Double  -->  Literal  (  String  )
+                        Double - Double  -->  Symbol  (  String  )
+                        Double - Double  -->  Operator Type  (  Integer  )
+                        Double - Double  -->  Priority  (  Long  )
+
+                  //  *
+
+                        Long * Long  -->  Literal  (  String  )
+                        Long * Long  -->  Symbol  (  String  )
+                        Long * Long  -->  Operator Type  (  Integer  )
+                        Long * Long  -->  Priority  (  Long  )
+
+                        Long * Double  -->  Literal  (  String  )
+                        Long * Double  -->  Symbol  (  String  )
+                        Long * Double  -->  Operator Type  (  Integer  )
+                        Long * Double  -->  Priority  (  Long  )
+
+                        Double * Long  -->  Literal  (  String  )
+                        Double * Long  -->  Symbol  (  String  )
+                        Double * Long  -->  Operator Type  (  Integer  )
+                        Double * Long  -->  Priority  (  Long  )
+
+                        Double * Double  -->  Literal  (  String  )
+                        Double * Double  -->  Symbol  (  String  )
+                        Double * Double  -->  Operator Type  (  Integer  )
+                        Double * Double  -->  Priority  (  Long  )
+
+                  //  /
+
+                        Long / Long  -->  Literal  (  String  )
+                        Long / Long  -->  Symbol  (  String  )
+                        Long / Long  -->  Operator Type  (  Integer  )
+                        Long / Long  -->  Priority  (  Long  )
+
+                        Long / Double  -->  Literal  (  String  )
+                        Long / Double  -->  Symbol  (  String  )
+                        Long / Double  -->  Operator Type  (  Integer  )
+                        Long / Double  -->  Priority  (  Long  )
+
+                        Double / Long  -->  Literal  (  String  )
+                        Double / Long  -->  Symbol  (  String  )
+                        Double / Long  -->  Operator Type  (  Integer  )
+                        Double / Long  -->  Priority  (  Long  )
+
+                        Double / Double  -->  Literal  (  String  )
+                        Double / Double  -->  Symbol  (  String  )
+                        Double / Double  -->  Operator Type  (  Integer  )
+                        Double / Double  -->  Priority  (  Long  )
+
+                  //  \
+
+                        Long \ Long  -->  Literal  (  String  )
+                        Long \ Long  -->  Symbol  (  String  )
+                        Long \ Long  -->  Operator Type  (  Integer  )
+                        Long \ Long  -->  Priority  (  Long  )
+
+                        Long \ Double  -->  Literal  (  String  )
+                        Long \ Double  -->  Symbol  (  String  )
+                        Long \ Double  -->  Operator Type  (  Integer  )
+                        Long \ Double  -->  Priority  (  Long  )
+
+                        Double \ Long  -->  Literal  (  String  )
+                        Double \ Long  -->  Symbol  (  String  )
+                        Double \ Long  -->  Operator Type  (  Integer  )
+                        Double \ Long  -->  Priority  (  Long  )
+
+                        Double \ Double  -->  Literal  (  String  )
+                        Double \ Double  -->  Symbol  (  String  )
+                        Double \ Double  -->  Operator Type  (  Integer  )
+                        Double \ Double  -->  Priority  (  Long  )
+
+                  //  Mod
+
+                        Long Mod Long  -->  Literal  (  String  )
+                        Long Mod Long  -->  Symbol  (  String  )
+                        Long Mod Long  -->  Operator Type  (  Integer  )
+                        Long Mod Long  -->  Priority  (  Long  )
+
+                        Long Mod Double  -->  Literal  (  String  )
+                        Long Mod Double  -->  Symbol  (  String  )
+                        Long Mod Double  -->  Operator Type  (  Integer  )
+                        Long Mod Double  -->  Priority  (  Long  )
+
+                        Double Mod Long  -->  Literal  (  String  )
+                        Double Mod Long  -->  Symbol  (  String  )
+                        Double Mod Long  -->  Operator Type  (  Integer  )
+                        Double Mod Long  -->  Priority  (  Long  )
+
+                        Double Mod Double  -->  Literal  (  String  )
+                        Double Mod Double  -->  Symbol  (  String  )
+                        Double Mod Double  -->  Operator Type  (  Integer  )
+                        Double Mod Double  -->  Priority  (  Long  )
+
+                  //  ^
+
+                        Long ^ Long  -->  Literal  (  String  )
+                        Long ^ Long  -->  Symbol  (  String  )
+                        Long ^ Long  -->  Operator Type  (  Integer  )
+                        Long ^ Long  -->  Priority  (  Long  )
+
+                        Long ^ Double  -->  Literal  (  String  )
+                        Long ^ Double  -->  Symbol  (  String  )
+                        Long ^ Double  -->  Operator Type  (  Integer  )
+                        Long ^ Double  -->  Priority  (  Long  )
+
+                        Double ^ Long  -->  Literal  (  String  )
+                        Double ^ Long  -->  Symbol  (  String  )
+                        Double ^ Long  -->  Operator Type  (  Integer  )
+                        Double ^ Long  -->  Priority  (  Long  )
+
+                        Double ^ Double  -->  Literal  (  String  )
+                        Double ^ Double  -->  Symbol  (  String  )
+                        Double ^ Double  -->  Operator Type  (  Integer  )
+                        Double ^ Double  -->  Priority  (  Long  )
+
+                  //  Root
+
+                        Long Root Long  -->  Literal  (  String  )
+                        Long Root Long  -->  Symbol  (  String  )
+                        Long Root Long  -->  Operator Type  (  Integer  )
+                        Long Root Long  -->  Priority  (  Long  )
+
+                        Long Root Double  -->  Literal  (  String  )
+                        Long Root Double  -->  Symbol  (  String  )
+                        Long Root Double  -->  Operator Type  (  Integer  )
+                        Long Root Double  -->  Priority  (  Long  )
+
+                        Double Root Long  -->  Literal  (  String  )
+                        Double Root Long  -->  Symbol  (  String  )
+                        Double Root Long  -->  Operator Type  (  Integer  )
+                        Double Root Long  -->  Priority  (  Long  )
+
+                        Double Root Double  -->  Literal  (  String  )
+                        Double Root Double  -->  Symbol  (  String  )
+                        Double Root Double  -->  Operator Type  (  Integer  )
+                        Double Root Double  -->  Priority  (  Long  )
+
+                  //  Log
+
+                        Long Log Long  -->  Literal  (  String  )
+                        Long Log Long  -->  Symbol  (  String  )
+                        Long Log Long  -->  Operator Type  (  Integer  )
+                        Long Log Long  -->  Priority  (  Long  )
+
+                        Long Log Double  -->  Literal  (  String  )
+                        Long Log Double  -->  Symbol  (  String  )
+                        Long Log Double  -->  Operator Type  (  Integer  )
+                        Long Log Double  -->  Priority  (  Long  )
+
+                        Double Log Long  -->  Literal  (  String  )
+                        Double Log Long  -->  Symbol  (  String  )
+                        Double Log Long  -->  Operator Type  (  Integer  )
+                        Double Log Long  -->  Priority  (  Long  )
+
+                        Double Log Double  -->  Literal  (  String  )
+                        Double Log Double  -->  Symbol  (  String  )
+                        Double Log Double  -->  Operator Type  (  Integer  )
+                        Double Log Double  -->  Priority  (  Long  )
+
+            //  Comparative
+
+                  //  =
+
+                        Long = Long  -->  Literal  (  String  )
+                        Long = Long  -->  Symbol  (  String  )
+                        Long = Long  -->  Operator Type  (  Integer  )
+                        Long = Long  -->  Priority  (  Long  )
+
+                        Long = Double  -->  Literal  (  String  )
+                        Long = Double  -->  Symbol  (  String  )
+                        Long = Double  -->  Operator Type  (  Integer  )
+                        Long = Double  -->  Priority  (  Long  )
+
+                        Double = Long  -->  Literal  (  String  )
+                        Double = Long  -->  Symbol  (  String  )
+                        Double = Long  -->  Operator Type  (  Integer  )
+                        Double = Long  -->  Priority  (  Long  )
+
+                        Double = Double  -->  Literal  (  String  )
+                        Double = Double  -->  Symbol  (  String  )
+                        Double = Double  -->  Operator Type  (  Integer  )
+                        Double = Double  -->  Priority  (  Long  )
+
+                  //  <>
+
+                        Long <> Long  -->  Literal  (  String  )
+                        Long <> Long  -->  Symbol  (  String  )
+                        Long <> Long  -->  Operator Type  (  Integer  )
+                        Long <> Long  -->  Priority  (  Long  )
+
+                        Long <> Double  -->  Literal  (  String  )
+                        Long <> Double  -->  Symbol  (  String  )
+                        Long <> Double  -->  Operator Type  (  Integer  )
+                        Long <> Double  -->  Priority  (  Long  )
+
+                        Double <> Long  -->  Literal  (  String  )
+                        Double <> Long  -->  Symbol  (  String  )
+                        Double <> Long  -->  Operator Type  (  Integer  )
+                        Double <> Long  -->  Priority  (  Long  )
+
+                        Double <> Double  -->  Literal  (  String  )
+                        Double <> Double  -->  Symbol  (  String  )
+                        Double <> Double  -->  Operator Type  (  Integer  )
+                        Double <> Double  -->  Priority  (  Long  )
+
+                  //  <
+
+                        Long < Long  -->  Literal  (  String  )
+                        Long < Long  -->  Symbol  (  String  )
+                        Long < Long  -->  Operator Type  (  Integer  )
+                        Long < Long  -->  Priority  (  Long  )
+
+                        Long < Double  -->  Literal  (  String  )
+                        Long < Double  -->  Symbol  (  String  )
+                        Long < Double  -->  Operator Type  (  Integer  )
+                        Long < Double  -->  Priority  (  Long  )
+
+                        Double < Long  -->  Literal  (  String  )
+                        Double < Long  -->  Symbol  (  String  )
+                        Double < Long  -->  Operator Type  (  Integer  )
+                        Double < Long  -->  Priority  (  Long  )
+
+                        Double < Double  -->  Literal  (  String  )
+                        Double < Double  -->  Symbol  (  String  )
+                        Double < Double  -->  Operator Type  (  Integer  )
+                        Double < Double  -->  Priority  (  Long  )
+
+                  //  >
+
+                        Long > Long  -->  Literal  (  String  )
+                        Long > Long  -->  Symbol  (  String  )
+                        Long > Long  -->  Operator Type  (  Integer  )
+                        Long > Long  -->  Priority  (  Long  )
+
+                        Long > Double  -->  Literal  (  String  )
+                        Long > Double  -->  Symbol  (  String  )
+                        Long > Double  -->  Operator Type  (  Integer  )
+                        Long > Double  -->  Priority  (  Long  )
+
+                        Double > Long  -->  Literal  (  String  )
+                        Double > Long  -->  Symbol  (  String  )
+                        Double > Long  -->  Operator Type  (  Integer  )
+                        Double > Long  -->  Priority  (  Long  )
+
+                        Double > Double  -->  Literal  (  String  )
+                        Double > Double  -->  Symbol  (  String  )
+                        Double > Double  -->  Operator Type  (  Integer  )
+                        Double > Double  -->  Priority  (  Long  )
+
+
+                  //  <=
+
+                        Long <= Long  -->  Literal  (  String  )
+                        Long <= Long  -->  Symbol  (  String  )
+                        Long <= Long  -->  Operator Type  (  Integer  )
+                        Long <= Long  -->  Priority  (  Long  )
+
+                        Long <= Double  -->  Literal  (  String  )
+                        Long <= Double  -->  Symbol  (  String  )
+                        Long <= Double  -->  Operator Type  (  Integer  )
+                        Long <= Double  -->  Priority  (  Long  )
+
+                        Double <= Long  -->  Literal  (  String  )
+                        Double <= Long  -->  Symbol  (  String  )
+                        Double <= Long  -->  Operator Type  (  Integer  )
+                        Double <= Long  -->  Priority  (  Long  )
+
+                        Double <= Double  -->  Literal  (  String  )
+                        Double <= Double  -->  Symbol  (  String  )
+                        Double <= Double  -->  Operator Type  (  Integer  )
+                        Double <= Double  -->  Priority  (  Long  )
+
+                  //  >=
+
+                        Long >= Long  -->  Literal  (  String  )
+                        Long >= Long  -->  Symbol  (  String  )
+                        Long >= Long  -->  Operator Type  (  Integer  )
+                        Long >= Long  -->  Priority  (  Long  )
+
+                        Long >= Double  -->  Literal  (  String  )
+                        Long >= Double  -->  Symbol  (  String  )
+                        Long >= Double  -->  Operator Type  (  Integer  )
+                        Long >= Double  -->  Priority  (  Long  )
+
+                        Double >= Long  -->  Literal  (  String  )
+                        Double >= Long  -->  Symbol  (  String  )
+                        Double >= Long  -->  Operator Type  (  Integer  )
+                        Double >= Long  -->  Priority  (  Long  )
+
+                        Double >= Double  -->  Literal  (  String  )
+                        Double >= Double  -->  Symbol  (  String  )
+                        Double >= Double  -->  Operator Type  (  Integer  )
+                        Double >= Double  -->  Priority  (  Long  )
+
+            //  Logical
+
+                  Logical Not  -->  Literal  (  String  )
+                  Logical Not  -->  Symbol  (  String  )
+                  Logical Not  -->  Operator Type  (  Integer  )
+                  Logical Not  -->  Priority  (  Long  )
+
+                  Logical And  -->  Literal  (  String  )
+                  Logical And  -->  Symbol  (  String  )
+                  Logical And  -->  Operator Type  (  Integer  )
+                  Logical And  -->  Priority  (  Long  )
+
+                  Logical Or  -->  Literal  (  String  )
+                  Logical Or  -->  Symbol  (  String  )
+                  Logical Or  -->  Operator Type  (  Integer  )
+                  Logical Or  -->  Priority  (  Long  )
+
+                  Logical Xor  -->  Literal  (  String  )
+                  Logical Xor  -->  Symbol  (  String  )
+                  Logical Xor  -->  Operator Type  (  Integer  )
+                  Logical Xor  -->  Priority  (  Long  )
+
+                  Logical Imp  -->  Literal  (  String  )
+                  Logical Imp  -->  Symbol  (  String  )
+                  Logical Imp  -->  Operator Type  (  Integer  )
+                  Logical Imp  -->  Priority  (  Long  )
+
+            //  Bit
+
+                  Bitwise Not  -->  Literal  (  String  )
+                  Bitwise Not  -->  Symbol  (  String  )
+                  Bitwise Not  -->  Operator Type  (  Integer  )
+                  Bitwise Not  -->  Priority  (  Long  )
+
+                  Bitwise And  -->  Literal  (  String  )
+                  Bitwise And  -->  Symbol  (  String  )
+                  Bitwise And  -->  Operator Type  (  Integer  )
+                  Bitwise And  -->  Priority  (  Long  )
+
+                  Bitwise Or  -->  Literal  (  String  )
+                  Bitwise Or  -->  Symbol  (  String  )
+                  Bitwise Or  -->  Operator Type  (  Integer  )
+                  Bitwise Or  -->  Priority  (  Long  )
+
+                  Bitwise Xor  -->  Literal  (  String  )
+                  Bitwise Xor  -->  Symbol  (  String  )
+                  Bitwise Xor  -->  Operator Type  (  Integer  )
+                  Bitwise Xor  -->  Priority  (  Long  )
+
+                  Bitwise Imp  -->  Literal  (  String  )
+                  Bitwise Imp  -->  Symbol  (  String  )
+                  Bitwise Imp  -->  Operator Type  (  Integer  )
+                  Bitwise Imp  -->  Priority  (  Long  )
+            
+            //  Trigonometric
+
+                  Sin  -->  Literal  (  String  )
+                  Sin  -->  Symbol  (  String  )
+                  Sin  -->  Operator Type  (  Integer  )
+                  Sin  -->  Priority  (  Long  )
+
+                  Cos  -->  Literal  (  String  )
+                  Cos  -->  Symbol  (  String  )
+                  Cos  -->  Operator Type  (  Integer  )
+                  Cos  -->  Priority  (  Long  )
+
+                  Tan  -->  Literal  (  String  )
+                  Tan  -->  Symbol  (  String  )
+                  Tan  -->  Operator Type  (  Integer  )
+                  Tan  -->  Priority  (  Long  )
+
+                  Atn  -->  Literal  (  String  )
+                  Atn  -->  Symbol  (  String  )
+                  Atn  -->  Operator Type  (  Integer  )
+                  Atn  -->  Priority  (  Long  )
+
+            //  Conversions
+
+                  Long ( Double )  -->  Literal  (  String  )
+                  Long ( Double )  -->  Symbol  (  String  )
+                  Long ( Double )  -->  Operator Type  (  Integer  )
+                  Long ( Double )  -->  Priority  (  Long  )
+
+                  Double ( Long )  -->  Literal  (  String  )
+                  Double ( Long )  -->  Symbol  (  String  )
+                  Double ( Long )  -->  Operator Type  (  Integer  )
+                  Double ( Long )  -->  Priority  (  Long  )
+
+//  Methods
+
+      //  Objects
+
+            //  Long
+
+                  Method  Override  Long  .  Literal  .  Get
+                        return  StringToDouble  (  Value  (  )  )  ;  //  I  need  another  conversion  routine
+                  End  Method
+
+                  Method  Override  Long  .  Operator Type  .  Get
+                        return  "1"  ;
+                  End  Method
+
+                  Method  Override  Long  .  Operator Type  .  Priority
+                        return  "15"  ;
+                  End  Method
+
+            //  Double
+
+                  Method  Override  Double  .  Literal  .  Get
+                        return  StringToDouble  (  Value  (  )  )  ;  //  I  need  another  conversion  routine
+                  End  Method
+
+                  Method  Override  Double  .  Operator Type  .  Get
+                        return  "2"  ;
+                  End  Method
+
+                  Method  Override  Double  .  Operator Type  .  Priority
+                        return  "15"  ;
+                  End  Method
+
+//  ...

@@ -1,0 +1,5 @@
+                  //  Translate  ...
+                  /*
+                  OverruledVisible = Visible
+                  If Not Parent Is Nothing Then If Not Parent.Visible Then OverruledVisible = False
+                  */

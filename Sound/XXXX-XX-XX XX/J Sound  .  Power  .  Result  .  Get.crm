@@ -1,0 +1,12 @@
+                  CItem* tItem = aThis -> ItemAttributes ( ) -> ParentItem ( ) ;
+                  CItem*  tArithmeticBase  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Arithmetic Base"  )  ->  Item  (  )  ;
+                  if  (  tArithmeticBase  ==  0  )  {  return  ""  ;  }
+                  CItem*  tExponent  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Exponent"  )  ->  Item  (  )  ;
+                  if  (  tExponent  ==  0  )  {  return  ""  ;  }
+                  CString  tTime  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  )  ;
+                  tArithmeticBase  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  tTime  )  ;
+                  tExponent  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  tTime  )  ;
+                  return  DoubleToString  (  pow  (  
+                        StringToDouble  (  tArithmeticBase  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )  ,
+                        StringToDouble  (  tExponent  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )
+                    ))  ;

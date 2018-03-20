@@ -1,0 +1,65 @@
+            // If Volume Is Nothing Or Pitch Is Nothing Then Exit Property
+                if (
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) == 0 ||
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) == 0
+                )
+                {
+                    return "" ;
+                }
+            // Extra's 
+                double Pi = 3.1415926535897932384626433832795 ;
+            // If Level Is Nothing And PhaseStart Is Nothing Then
+                if (
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Level" ) -> Item ( ) == 0 &&
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Phase Start" ) -> Item ( ) == 0
+                )
+                {
+                    // Volume.Time = Time
+                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                    // Pitch.Time = Time
+                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                    // Extra's
+                        double tVolume = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        double tPitch = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        double tTime = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                    // Result = Volume.Result * Sin(2 * Pi * Pitch.Result * Time)
+                        return DoubleToString ( tVolume * sin ( 2 * Pi * tPitch * tTime ) ) ;
+                }
+            // Else
+                else
+                {
+                    // Dim tLevel As Double
+                        double tLevel = 0;
+                    // Dim tPhaseStart As Double
+                        double tPhaseStart = 0;
+                    // Volume.Time = Time
+                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                    // Pitch.Time = Time
+                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                    // If Not Level Is Nothing Then
+                        if (aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Level" ) -> Item ( ) != 0 ) {
+                            // Level.Time = Time
+                                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Level" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                            // tLevel = Level.Result
+                                tLevel = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Level" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) );
+                        }
+                    // If Not PhaseStart Is Nothing Then
+                        if (aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Phase Start" ) -> Item ( ) != 0 ) {
+                            // PhaseStart.Time = Time
+                                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Phase Start" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                            // tPhaseStart = PhaseStart.Result
+                                tPhaseStart = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Phase Start" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) );
+                        }
+                    // Extra's
+                        double tVolume = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        double tPitch = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        double tTime = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                    // Result = tLevel + Volume.Result * Sin((tPhaseStart * 2 * Pi) + 2 * Pi * Pitch.Result * Time)
+                        return DoubleToString ( tLevel + tVolume * sin ( ( tPhaseStart * 2 * Pi ) + 2 * Pi * tPitch * tTime ) ) ;
+                }

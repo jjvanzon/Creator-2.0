@@ -1,0 +1,84 @@
+>
+
+>  Describe
+
+    Related Items  :
+        Structure
+
+>  Structure
+
+Structure  >  
+
+Structure  >  Describe
+
+    Class  :  Structure
+
+    Related Lists  :
+        Classes  (  Class  )
+        Relations  (  Relation  )
+
+Structure  >  
+
+Structure  >  Classes
+
+Structure  .  Classes  [  ]  >  
+
+Structure  .  Classes  [  ]  >  Count
+
+    9
+
+Structure  .  Classes  [  ]  >  List
+
+    Classes  (  Class  )
+    --------------------------------
+    #        Name
+    --------------------------------
+    [  0  ]  Structure
+    [  1  ]  Class
+    [  2  ]  ClassAttribute
+    [  3  ]  Relation
+    [  4  ]  RelationClass
+    [  5  ]  Item
+    [  6  ]  ItemAttribute
+    [  7  ]  RelatedItem
+    [  8  ]  RelatedList
+
+Structure  .  Classes  [  ]  >  ..
+
+Structure  >  
+
+Structure  >  Relations
+
+Structure  .  Relations  [  ]  >  
+
+Structure  .  Relations  [  ]  >  Count
+
+    3
+
+Structure  .  Relations  [  ]  >  [  1  ]
+
+Structure  .  Relations  .  [  1  ]  >  
+
+Structure  .  Relations  .  [  1  ]  >  Describe
+
+    Class  :  Relation
+
+    Related Items  :
+        -> Relation Class A
+        -> Relation Class B
+
+Structure  .  Relations  .  [  1  ]  >  Relation Class B
+
+Structure  .  Relations  .  [  1  ]  .  Relation Class B  >  
+
+Structure  .  Relations  .  [  1  ]  .  Relation Class B  >  Describe
+
+    Class  :  Relation Class
+
+    Attributes  :
+        Name  =  "Classes"
+        Plural  =  True  (  Boolean  )
+    
+    Related Items  :
+        -> Class
+        <- Structure

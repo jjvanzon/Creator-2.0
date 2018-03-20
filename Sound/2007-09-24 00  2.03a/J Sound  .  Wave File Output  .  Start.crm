@@ -1,0 +1,69 @@
+                // Extra
+                    double tRealTimePerVirtualTime = StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "Real Time Per Virtual Time" ) -> Value ( ) ) ;
+                // If RealTimePerVirtualTime = 0 Then Exit Function
+                    if ( tRealTimePerVirtualTime == 0.0 ) { return ; }
+                // Extra
+                    double tSamplingRate = StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "Sampling Rate" ) -> Value ( ) ) ;
+                // If SamplingRate = 0 Then Exit Function
+                    if ( tSamplingRate == 0.0 ) { return ; }
+                // Extra
+                    CString tFilePath = aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "File Path" ) -> Value ( ) ;
+                // If FilePath = "" Then Exit Function
+                    if ( tFilePath == "" ) { return ; }
+                // If FileExists(FilePath) Then Kill FilePath
+                    if ( FileExists ( tFilePath ) ) { DeleteFile ( tFilePath ) ; }
+                // Start = True
+                    // Not translated
+                // Dim t As Double
+                    double t ;
+                // Dim tFileNumber As Long
+                    HANDLE tFileNumber ;
+                // Dim tDouble As Double
+                    double tDouble ;
+                // Dim tInteger As Integer
+                    short tInteger ;
+                // Dim tStep As Double
+                    double tStep ;
+                // tStep = 1 / RealTimePerVirtualTime / SamplingRate
+                    tStep = 1.0 / tRealTimePerVirtualTime / tSamplingRate ;
+                // Extra
+                    DWORD tBytesWritten ;
+                // tFileNumber = FreeFile
+                // Open FilePath For Binary As tFileNumber
+                    tFileNumber = CreateFile ( tFilePath , GENERIC_WRITE , FILE_SHARE_READ , 0 , OPEN_ALWAYS , FILE_ATTRIBUTE_NORMAL , 0 ) ;
+                    // Extra
+                        double tStartTime = StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "Start Time" ) -> Value ( ) ) ;
+                        double tEndTime = StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "End Time" ) -> Value ( ) ) ;
+                     // For t = StartTime To EndTime Step tStep
+                        for ( t = tStartTime ; t <= tEndTime ; t += tStep ) {
+                            // tDouble = 0
+                                tDouble = 0 ;
+                            // If Not LeftChannel Is Nothing Then
+                                if ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Left Channel" ) -> Item ( ) != 0 ) {
+                                    // LeftChannel.Time = t
+                                        aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Left Channel" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( DoubleToString ( t ) ) ;
+                                    // tDouble = tDouble + LeftChannel.Result
+                                        tDouble += StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Left Channel" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                                }
+                            // If Not RightChannel Is Nothing Then
+                                if ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Right Channel" ) -> Item ( ) != 0 ) {
+                                    // RightChannel.Time = t
+                                        aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Right Channel" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( DoubleToString ( t ) ) ;
+                                    // tDouble = tDouble + RightChannel.Result
+                                        tDouble += StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Reft Channel" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                                }
+                            // tDouble = tDouble * Amplifier
+                                tDouble = tDouble * StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "Amplifier" ) -> Value ( ) ) ;
+                            // If tDouble > 32767 Then tDouble = 32767
+                                if ( tDouble > 32767 ) { tDouble = 32767 ; } 
+                            // If tDouble < -32768 Then tDouble = -32768
+                                if ( tDouble < -32768 ) { tDouble = -32768 ; } 
+                            // tInteger = Fix(tDouble)
+                                tInteger = ( int ) tDouble ;
+                            // Put tFileNumber, , tInteger
+                                WriteFile ( tFileNumber , & tInteger  , 2 , & tBytesWritten , 0 ) ;
+                        }
+                // Close tFileNumber
+                    CloseHandle ( tFileNumber ) ;
+                // MsgBox "Done."
+                    MessageBox ( 0 , "Done." , "" , MB_OK ) ;

@@ -1,0 +1,6 @@
+              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+              CItem*  tCurve  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Curve"  )  ->  Item  (  )  ;
+              if  (  tCurve  ==  0  )  {  return  ""  ;  }
+              CString  tTime  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  )  ;
+              tCurve  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  tTime  )  ;
+              return  tCurve  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;

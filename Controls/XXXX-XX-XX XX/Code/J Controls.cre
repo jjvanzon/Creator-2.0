@@ -1,0 +1,533 @@
+//
+//  J  Controls  Version  XXXX-XX-XX XX
+//
+//      Author  :  Jan-Joost  van  Zon
+//      Date  :  September  23,  2007  -  September  23,  2007
+//
+//  -----
+//
+//  Comment  :
+//
+//      This  is  a  translation  from  the  Creator  0.9  code  to  a  Creator  2.0  module.
+//      Not  everything  is  translated  yet,  because  Creator  2.0  does  not  have  all
+//      features  of  Creator  0.9  yet.  (  But  Creator  2.0  has  features  Creator  0.9  does  not)
+//
+//  -----
+
+//  Name
+
+        Name  J Controls
+
+//  Classes
+
+      //  Services
+
+            Class  Draw
+            Class  Interaction
+            Class  Focus
+
+            Class  Surface Interface
+            Class  Timer
+
+      //  General
+
+            Class  Application
+            Class  Screen
+            Class  Control
+            Class  Control Draw Timer Event Procedures
+
+      //  Controls
+
+            Class  Label
+            Class  Button
+            Class  Button Set
+            Class  Text Box
+            Class  Scroll
+            Class  Simple List
+            Class  List
+            Class  Splitter
+            Class  Frame Set
+            Class  Data Grid  //  Different  name ?
+            Class  Zoom Box
+            Class  Map Box
+            Class  Tree
+            Class  Frame  //  Different  name ?  What  I  mean  is  a  ' group  box ' .
+            Class  Window
+            Class  Image
+            Class  Image List
+            Class  Free List  //  What  did  I mean  by  this?
+            Class  Find
+            Class  Dir List
+            Class  Blinking Icon
+
+      //  Style
+
+            Class  Style
+            Class  Button Style
+            Class  View Element
+
+      //  Event  Interfaces
+
+            Class  Timer Events
+            Class  Control Events
+            Class  Label Events
+            Class  Button Events
+            Class  List Events
+
+//  Relations
+
+      //  General
+
+            Application  (  Application  )  1  -->  1  Draw  (  Draw  )
+            Application  (  Application  )  1  -->  1  Interaction  (  Interaction  )
+            Application  (  Application  )  1  -->  1  Focus  (  Focus  )
+            Application  (  Application  )  1  -->  n  Screen  (  Screens  )
+            Application  (  Application  )  1  -->  n  Control  (  Controls  )
+
+            Screen  (  Screen  )  1  -->  n  Control  (  Controls  )
+            Screen  (  As Screen Focused Control  )  1  -->  n  Control  (  Focused Controls  )
+
+            Control  (  Parent  )  1  -->  n  Control  (  Children  )
+
+      //  Inheriting  Control
+
+            Label  (  As Label  )  1  -->  1  Control  (  Base  )
+            Button  (  As Button  )  1  -->  1  Control  (  Base  )
+            Button Set  (  As Button Set  )  1  -->  1  Control  (  Base  )
+            Text Box  (  As Text Box  )  1  -->  1  Control  (  Base  )
+            Scroll  (  As Scroll  )  1  -->  1  Control  (  Base  )
+            Simple List  (  As Simple List  )  1  -->  1  Control  (  Base  )
+            List  (  As List  )  1  -->  1  Control  (  Base  )
+            Splitter  (  As Splitter  )  1  -->  1  Control  (  Base  )
+            Frame Set  (  As Frame Set  )  1  -->  1  Control  (  Base  )
+            Data Grid  (  As Data Grid  )  1  -->  1  Control  (  Base  )
+            Zoom Box  (  As Zoom Box  )  1  -->  1  Control  (  Base  )
+            Map Box  (  As Map Box  )  1  -->  1  Control  (  Base  )
+            Tree  (  As Tree  )  1  -->  1  Control  (  Base  )
+            Frame  (  As Frame  )  1  -->  1  Control  (  Base  )
+            Window  (  As Window  )  1  -->  1  Control  (  Base  )
+            Image  (  As Image  )  1  -->  1  Control  (  Base  )
+            Image List  (  As Image List  )  1  -->  1  Control  (  Base  )
+            Free List  (  As Free List  )  1  -->  1  Control  (  Base  )
+            Find  (  As Find  )  1  -->  1  Control  (  Base  )
+            Dir List  (  As Dir List  )  1  -->  1  Control  (  Base  )
+            Blinking Icon  (  As Blinking Icon  )  1  -->  1  Control  (  Base  )
+
+      //  Control  To  Draw Timer
+
+            Control  (  Control  )  1  -->  1  Timer  (  Draw Timer  )
+            Control  (  Control  )  1  -->  1  Control Draw Timer Event Procedures  (  Draw Timer Event Procedures  )
+
+      //  Controls  To  Style
+
+            Label  (  In Label  )  n  -->  1  Style  (  Style  )
+            Button  (  In Button  )  n  -->  1  Button Style  (  Style  )
+
+      //  Control  To  Event  Sink
+
+            Control  (  Control  )  1  -->  1  Timer  (  Draw Timer  )
+            Button  (  Button  )  1  -->  1  Button Events  (  Event Sink  )
+
+      //  Control  To  Child  Objects
+
+            Button  (  As Button Toggle Back Timer  )  1  -->  1  Timer  (  Toggle Back Timer  )
+
+      //  Miscellaneous  Relations
+
+            Button  (  Button  )  1  -->  1  View Element  (  Picture  )
+            Button  (  Button  )  1  -->  1  View Element  (  Value  )
+            Button  (  Button  )  1  -->  1  View Element  (  Text  )
+
+//  Attributes
+
+      //  Services
+
+            Surface Interface  -->  Font Name  (  String  )
+            Surface Interface  -->  Font Size  (  Double  )
+            Surface Interface  -->  Font Bold  (  Boolean  )
+            Surface Interface  -->  Font Italic  (  Boolean  )
+            Surface Interface  -->  Font Underline  (  Boolean  )
+            Surface Interface  -->  Font StrikeThru  (  Boolean  )
+            Surface Interface  -->  Fore Color  (  Long  )
+            Surface Interface  -->  Back Color  (  Long  )
+            Surface Interface  -->  Draw Width  (  Long  )
+            Surface Interface  -->  Draw Style  (  Long  )
+
+            Timer  -->  Enabled  (  Boolean  )
+            Timer  -->  Interval  (  Long  )
+            //  Timer  -->  Timer ID  (  Long  )  //  What  was  this  originally  used  for ?
+
+      //  General
+
+            Control  -->  Left  (  Double  )
+            Control  -->  Top  (  Double  )
+            Control  -->  Width  (  Double  )
+            Control  -->  Height  (  Double  )
+            Control  -->  Visible  (  Boolean  )
+            Control  -->  Has Focus  (  Boolean  )
+            Control  -->  Full Screen Mouse Interaction  (  Boolean  )
+            Control  -->  Exclusive Mouse Interaction  (  Boolean  )
+            Control  -->  Name  (  String  )
+            Control  -->  Full Name  (  String  )
+            Control  -->  Overruled Visible  (  Boolean  )
+            Control  -->  Left In Screen  (  Double  )
+            Control  -->  Top In Screen  (  Double  )
+
+      //  Controls
+
+            //  Label
+
+                  Label  -->  Text  (  String  )
+                  Label  -->  Abbreviate  (  String  )
+
+            //  Button
+
+                  //  Appearance
+
+                        Button  -->  Appearance  (  Enum  )
+                        Button  -->  Suggested Width  (  Double  )
+                        Button  -->  View Element Orientation  (  Enum  )
+                        Button  -->  Abbreviate  (  Boolean  )
+
+                  //  Behavior
+
+                        Button  -->  Use Single Mechanical States  (  Boolean  )
+                        Button  -->  Mechanical State  (  Enum  )
+                        Button  -->  Purpose  (  Enum  )
+                        Button  -->  Mechanics On  (  Boolean  )
+
+                  //  Data
+
+                        Button  -->  Text  (  String  )
+                        Button  -->  Value  (  Boolean  )
+
+                  //  Event Sink
+
+                        Button  -->  ID In Event Sink  (  Long  )
+
+      //  Style
+
+            Style  -->  Name  (  String  )
+            Style  -->  Font Name  (  String  )
+            Style  -->  Font Size  (  Double  )
+            Style  -->  Fond Bold  (  Boolean  )
+            Style  -->  Fond Italic  (  Boolean  )
+            Style  -->  Fond Underline  (  Boolean  )
+            Style  -->  Fond Strike Thru  (  Boolean  )
+            Style  -->  Icon Color  (  Long  )
+            Style  -->  Fore Color  (  Long  )
+            Style  -->  Back Color  (  Long  )
+            Style  -->  Border Color  (  Long  )
+            Style  -->  Light Color  (  Long  )
+            Style  -->  Dark Color  (  Long  )
+            Style  -->  Border Style  (  Enum  )
+            Style  -->  Border Width  (  Double  )
+            Style  -->  Horizontal Alignment  (  Enum  )
+            Style  -->  Vertical Alignment  (  Enum  )
+            //  IconPicture As IPictureDisp
+            //  ForePicture As IPictureDisp
+            //  BackPicture As IPictureDisp
+            //  BorderPicture As IPictureDisp
+            //  LightPicture As IPictureDisp
+            //  DarkPicture As IPictureDisp
+            //  IconColorOpacy As Double
+            //  ForeColorOpacy As Double
+            //  BackColorOpacy As Double
+            //  BorderColorOpacy As Double
+            //  DarkColorOpacy As Double
+            //  LightColorOpacy As Double
+            //  IconPictureOpacy As Double
+            //  ForePictureOpacy As Double
+            //  BackPictureOpacy As Double
+            //  BorderPictureOpacy As Double
+            //  DarkPictureOpacy As Double
+            //  LightPictureOpacy As Double
+            //  HorizontalSpacing As Double
+            //  VerticalSpacing As Double
+            //  HorizontalPadding As Double
+            //  VerticalPadding As Double
+
+            View Element  -->  Order  (  Long  )
+
+      //  Event  Interfaces  (  Parameters  )
+
+            //  Button Events
+
+                  Button Events  -->  Mechanical State Changed . a Toggle Back
+
+            //  Control Events
+
+                  Control Events  -->  Key Down . a Key Code
+                  Control Events  -->  Key Down . a Shift
+                  Control Events  -->  Key Up . a Key Code
+                  Control Events  -->  Key Up . a Shift
+
+                  Control Events  -->  Mouse Down . a Button
+                  Control Events  -->  Mouse Down . a Shift
+                  Control Events  -->  Mouse Down . a X
+                  Control Events  -->  Mouse Down . a Y
+
+                  Control Events  -->  Mouse Move . a Button
+                  Contol Events  -->  Mouse Move . a Shift
+                  Control Events  -->  Mouse Move . a X
+                  Control Events  -->  Mouse Move . a Y
+
+                  Control Events  -->  Mouse Up . a Button
+                  Control Events  -->  Mouse Up . a Shift
+                  Control Events  -->  Mouse Up . a X
+                  Control Events  -->  Mouse Up . a Y
+
+//  Methods
+
+      //  Attribute  Extensions
+
+            Method  Override  Control  .  Left  .  Set
+                  //  Call  Base  ...
+                  //  Call  RequestDraw  ...
+            End  Method
+
+            Method  Override  Control  .  Top  .  Set
+                  //  Call  Base  ...
+                  //  Call  RequestDraw  ...
+            End  Method
+
+            Method  Override  Control  .  Width  .  Set
+                  //  Call  Base  ...
+                  //  Call  RequestDraw  ...
+            End  Method
+
+            Method  Override  Control  .  Height  .  Set
+                  //  Call  Base  ...
+                  //  Call  RequestDraw  ...
+            End  Method
+
+            Method  Override  Control  .  Has Focus  .  Set
+                  //  Translate  ...
+                  /*
+                  If Not Screen Is Nothing Then
+                        If sHasFocus Then
+                              With Screen.FocusedControls
+                                    IdInScreenFocusedControls = .Add
+                                    Set .Item(IdInScreenFocusedControls) = This
+                              End With
+                        Else
+                              Screen.FocusedControls.Remove IdInScreenFocusedControls
+                        End If
+                  End If
+                  RaiseEvent HasFocusChanged
+                  */
+            End  Method
+
+            Method  Override  Control  .  Full Name  .  Get
+                  //  Translate  ...
+                  /*
+                  If Not Parent Is Nothing Then FullName = Parent.Name + " . "
+                  FullName = FullName + Name
+                  */
+            End  Method            
+
+            Method  Override  Control  .  Overruled Visible  .  Get
+                  //  Translate  ...
+                  /*
+                  OverruledVisible = Visible
+                  If Not Parent Is Nothing Then If Not Parent.Visible Then OverruledVisible = False
+                  */
+            End  Method
+
+            Method  Override  Control  .  Left In Screen  .  Get
+                  //  Translate  ...
+                  /*
+                  LeftInScreen = Left
+                  If Not Parent Is Nothing Then LeftInScreen = LeftInScreen + Parent.LeftInScreen
+                  */
+            End  Method
+
+            Method  Override  Control  .  Top In Screen  .  Get
+                  //  Translate  ...
+                  /*
+                  TopInScreen = Top
+                  If Not Parent Is Nothing Then TopInScreen = TopInScreen + Parent.TopInScreen
+                  */
+            End  Method
+
+      //  Control  Methods
+
+            //  Interaction  Methods
+
+                  Method  Control  .  Execute Key Down
+                      //  Raise  Event
+                  End  Method
+
+                  Method  Control  .  Execute Key Up
+                      //  Raise  Event
+                  End  Method
+
+                  Method  Control  .  Execute Mouse Down
+                      //  Raise  Event
+                  End  Method
+
+                  Method  Control  .  Execute Mouse Move
+                      //  Raise  Event
+                  End  Method
+
+                  Method  Control  .  Execute Mouse Up
+                      //  Raise  Event
+                  End  Method
+
+                  Method  Control  .  Execute Double Click
+                      //  Raise  Event
+                  End  Method
+
+            //  Other
+
+                  Method  Control  .  Request Draw
+                      //  Implementation  ...
+                  End  Method
+
+                  Method  Control  .  Draw
+                      //  Implementation  ...
+                  End  Method
+
+                  Method  Control  .  Move
+                      //  Implementation  ...
+                  End  Method
+
+                  Method  Control  .  Sole Focus
+                      //  Implementation  ...
+                  End  Method
+
+      //  Event  Interfaces
+
+            //  Timer Events
+
+                  Method  Timer Events  .  Tick
+                        //  Implementattion  ...
+                  End  Method
+
+            //  Control Events
+
+                  //  Interaction
+
+                        Method  Control Events  .  Key Down
+                        End  Method
+
+                        Method  Control Events  .  Key Up
+                        End  Method
+
+                        Method  Control Events  .  Mouse Down
+                        End  Method
+
+                        Method  Control Events  .  Mouse Move
+                        End  Method
+
+                        Method  Control Events  .  Mouse Up
+                        End  Method
+
+                        Method  Control Events  .  Double Clicked
+                        End  Method
+
+                  //  Other
+
+                        Method  Control Events  .  Override Draw
+                        End  Method
+
+                        Method  Control Events  .  Has Focus Changed
+                        End  Method
+
+            //  Label Events
+
+                  Method  Label Events  .  Style Changed
+                  End  Method
+
+            //  Button Events
+
+                  Method  Button Events  .  Pressed
+                  End  Method
+
+                  Method  Button Events  .  Drawn
+                  End  Method
+
+                  Method  Button Events  .  Suggested Width Changed
+                  End  Method
+
+                  Method  Button Events  .  Has Focus Changed
+                  End  Method
+
+                  Method  Button Events  .  Relevance Changed
+                  End  Method
+
+                  Method  Button Events  .  Mechanical State Changed
+                  End  Method
+
+                  Method  Button Events  .  Value Changed
+                  End  Method
+
+      //  Event  Procedures
+
+            Method  Control Draw Timer Event Procedures  .  Tick
+                  //  Translate  ...
+                  /*
+                  DrawTimer.Enabled = False
+                  Draw
+                  */
+            End  Method
+
+      //  Control  :  Add  Implementations  to :
+
+            //  Attribute  extensions :
+                  //  Extend  Attributes  with  Request Draw
+                  //  Has Focus  extension
+                  //  Full Name  overriding
+                  //  Overruled Visible ,  Left In Screen ,  Top In Screen
+            //  Methods :
+                  //  Interaction  Methods :  Key Down ,  Key Up ,  Mouse Down ,  Mouse Move ,  Mouse Up ,  Double Clicked
+                  //  Other  Methods :  Draw,  Move,  Sole Focus
+            //  Event  Procedures :
+                  //  Implement  Draw Timer  .  Tick
+
+      //  Draw ,  Interaction  &  Surface  Interface  :
+
+            //  Add  the  mostly  procedural  code  of  :
+
+                  //  Surface Interface  Methods  :  Draw Point ,  Draw Line ,  Draw Text .
+                  //  Draw  &  Interaction Code.
+
+//  Peculiarities :
+
+      //  Timer :
+
+            //  Timer  used  to  have  a  VB  Timer  as  a  base ,
+            //  and  an  interface  implementation  for  it .
+
+      //  Events :
+
+            //  Basically  you  are  missing  events  in  Creator.  I  will  implement
+            //  a  preliminary  solution,  using  the  event  interface  principle,
+            //  which  can  provide  me  with  single  cast  events.
+
+            //  Events  are  implemented  as  single  cast  event  interfaces
+                  //  So  every  event  client  has  an  object  in  it
+                  //  That  is  the  event  sink.  The  objects  is  of  a  new  class
+                  //  That  contains  all  the  members  in  the  event  interface,
+                  //  And  implements  a  custom  procedure  for  it.
+                  //  This  object  is  assigned  to  the  sub  object's  
+                  //  event  sink  object.
+
+      //  Method  Parameters :
+
+            //  Also  denote  in  documentation  that  you  used  attributes  to  provide  event  parameters
+
+      //  VB  Text  Files  to  process :
+
+            //  Path :  E:\Fleet\Jan-Joost van Zon\Programming\Sigma\Controls\2006-08-28 00  5.00a  ( Creator 0.9 )\Written Code\Custom Modules
+
+            //  Module  Extensions :
+
+                  //  Label Custom Definitions.txt
+                  //  Public Global . Custom Definitions.txt  (only  take  a  look  at  it)
+
+            //  Custom  Modules :
+
+                  //  Draw
+                  //  Focus
+                  //  Interaction

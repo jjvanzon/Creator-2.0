@@ -1,0 +1,14 @@
+//  Creator Version  2007-08-25 00  2.02a
+
+//  Creator  .  Tree Control
+
+        Class  Item
+
+        Item  (  Parent  )  1  -->  n  Item  (  Children  )
+
+        Item  -->  Expanded  (  Boolean  )
+        Item  -->  Text  (  String  )
+        Item  -->  Position  (  Long  )
+        Item  -->  Level  (  Long  )
+        Item  -->  Item Type  (  Long  )
+        Item  -->  Direction  (  Long  )

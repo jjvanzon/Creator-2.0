@@ -1,0 +1,84 @@
+//
+//  Creator  Version  XXXX-XX-XX XX
+//
+//    Author  :  Jan-Joost  van  Zon
+//    Date  :  April  13,  2007  -  September  15,  2007
+//
+//  -----
+
+//  Name
+
+        Name  Creator
+
+//  Classes
+
+      Class  Structure
+      Class  Class
+      Class  Class Attribute
+      Class  Relation
+      Class  Relation Class
+      Class  Item
+      Class  Item Attribute
+      Class  Related Item
+      Class  Related List
+
+      //  For  Methods
+
+            Class  Class Method
+            Class  Item Method
+
+//  Attributes
+
+      Structure  -->  Name  (  String  )
+      Structure  -->  Folder  (  String  )
+      Structure  -->  Debug Member  (  String  )
+
+      Class  -->  Class Name  (  String  )
+
+      Class Attribute  -->  Name  (  String  )
+      Class Attribute  -->  Type  (  String  )
+
+      Relation Class  -->  Plural  (  Boolean  )
+      Relation Class  -->  Name  (  String  )
+      Relation Class  -->  Direction  (  Long  )    //  Quick  &  Dirty  solution,  substituting  Relation Class  ->  Relation ( as relation class a )  =  Something
+
+      Item Attribute  -->  Value  (  String  )
+
+      //  For  Methods
+
+            Class Method  -->  Name  (  String  )
+            Item Method  -->  Name  (  String  )
+
+//  Relations
+
+      Structure  (  Structure  )    1  -->  n    Class  (  Classes  )
+      Structure  (  Structure  )    1  -->  n    Relation  (  Relations  )
+
+      Class  (  Class  )    1  -->  n    Class Attribute  (  Class Attributes  )
+
+      Relation  (  Relation ( as relation class a )  )    1  -->  1    Relation Class  (  Relation Class A  )
+      Relation  (  Relation ( as relation class b )  )    1  -->  1    Relation Class  (  Relation Class B  )
+
+      Relation Class  (  As Relation Class  )    n  -->  1    Class  (  Class  )
+      Relation Class  (  As Other Relation Class  )    1  -->  1    Relation Class  (  Other Relation Class  )    //  Quick  &  Dirty  Other  Relation  Class  for  Quick  &  Dirty  Synchronization  1  ->  n  for  the  Procedures  Project
+
+      Item  (  As Item  )    n  -->  1    Class  (  Class  )
+      Item  (  Item  )    1  -->  n    Item Attribute  (  Item Attributes  )
+      Item  (  Parent Item  )    1  -->  n    Related Item  (  Related Items  )
+      Item  (  Item  )    1  -->  n    Related List  (  Related Lists  )
+
+      Item Attribute  (  As Item Attribute  )    n  -->  1    Class Attribute  (  Class Attribute  )    //  Backward relation ridiculous to maintain
+
+      Related Item  (  As Related Item  )    n  -->  1    Relation Class  (  Relation Class  )
+      Related Item  (  As Related Item  )    n  -->  1    Item  (  Item  )
+
+      Related List  (  As Relation List  )    n  -->  1    Relation Class  (  Relation Class  )
+      Related List  (  As Related List Item  )    n  -->  n    Item  (  Items  )    //  Backward relation ridiculous to maintain
+
+      Class  (  -  )    1  -->  n  Relation Class  (  Related Classes  )
+
+      //  For  Methods
+
+            Class  (  Class  )    1  -->  n    Class Method  (  Class Methods  )
+            Item  (  Item  )    1  -->  n    Item Method  (  Item Methods  )
+            Item Method  (  As Item Method  )    n  -->  1    Class Method  (  Class Method  )    //  Backward relation ridiculous to maintain

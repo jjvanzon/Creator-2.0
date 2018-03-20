@@ -1,0 +1,1099 @@
+//
+//  J  Sound  Version  XXXX-XX-XX XX
+//
+//    Author  :  Jan-Joost  van  Zon
+//    Date  :  August  23,  2007  -  September  18,  2007
+//
+//    Comment  :
+//
+//        This  code  is  a  rewritten  version  of  the  original  Creator  0.9  module  of  J  Sound  .
+//        Not  all  aspects  of  the  system  were  copied  ,
+//        because  Creator  2.0  does  not  yet  support  all  features  of  Creator  0.9
+//        (  yet  ,  2.0  also  supports  features  0.9  does  not  )  .
+//
+//  -----
+
+//  Name
+
+    Name  J Sound
+
+    Debug  Sample  .  Load
+
+//  Classes
+
+    //  General  Classes
+
+        Class  Application
+        Class  Workspace
+        Class  Document
+        Class  Curve
+        Class  Node
+        Class  Dimensioner
+        Class  Analyser
+        Class  Transport
+        Class  Sample
+        Class  Sample Sample
+        Class  Midi File
+        Class  Wave File Output
+        Class  Midi File Output
+        Class  Wave In
+        Class  Wave Out
+        Class  Midi In
+        Class  Midi Out
+        Class  Scale
+        Class  Scale Tone
+        Class  Octave
+        Class  Octave Ordinal
+        Class  Sequence
+        Class  Sequence Tone
+        Class  Pitch
+
+    //  Patch  Classes
+
+        Class  Patch
+        Class  Operator
+        Class  Value
+        Class  Add
+        Class  Substract
+        Class  Multiply
+        Class  Divide
+        Class  Power
+        Class  Time Add
+        Class  Time Substract
+        Class  Time Multiply
+        Class  Time Divide
+        Class  Time Power
+        Class  Sine
+        Class  Noise
+        Class  Adder
+        Class  Black Box Operator
+        Class  Instrument Operator
+        Class  Inlet
+        Class  Outlet
+        Class  Curve In
+        Class  Sample Operator
+        Class  Wave In Operator
+        Class  Midi File Operator
+        Class  Midi In Operator
+        Class  Pitch Operator
+
+//  Relations
+
+      //  Application  to  Workspace
+
+            Application  (  Application  )    1  -->  n    Workspace  (  Workspaces  )
+
+      //  Workspace  to  Documents
+
+            Workspace  (  As Base Of Workspace  )    1  -->  1    Document  (  Base  )    //  Should  be  Inheritant
+            Workspace  (  Workspace For Instrument  )    1  -->  n    Document  (  Instruments  )
+            Workspace  (  Workspace For Black Box  )    1  -->  n    Document  (  Black Boxes  )
+            Workspace  (  Workspace For Template  )    1  -->  n    Document  (  Templates  )    //  In  the  Creator  0.9  code,  the  class  was  Template  ,  but  this  class  doesn't  exist  ,  so  it  must  have  been  an  error  .
+
+      //  Document  to  Elements
+
+            Document  (  Document  )    1  -->  n    Curve  (  Curves  )
+            Document  (  Document  )    1  -->  n    Sequence  (  Sequences  )
+            Document  (  Document  )    1  -->  n    Scale  (  Scales  )
+            Document  (  Document  )    1  -->  n    Patch  (  Patches  )
+            Document  (  Document  )    1  -->  n    Dimensioner  (  Dimensioners  )
+            Document  (  Document  )    1  -->  n    Analyser  (  Analysers  )
+            Document  (  Document  )    1  -->  1    Transport  (  Transport  )
+
+            //  Transport  to  Channels
+
+                  Transport  (  Transport  )    1  -->  n    Sample  (  Samples  )
+                        Sample  (  Sample  )  1  -->  n  Sample Sample  (  Samples  )
+                  Transport  (  Transport  )    1  -->  n    Wave File Output  (  Wave File Outputs  )
+                  Transport  (  Transport  )    1  -->  n    Midi File  (  Midi Files  )
+                  Transport  (  Transport  )    1  -->  n    Midi File Output  (  Midi File Outputs  )
+                  Transport  (  Transport  )    1  -->  n    Wave In  (  Wave Ins  )
+                  Transport  (  Transport  )    1  -->  n    Wave Out  (  Wave Outs  )
+                  Transport  (  Transport  )    1  -->  n    Midi In  (  Midi Ins  )
+                  Transport  (  Transport  )    1  -->  n    Midi Out  (  Midi Outs  )
+
+            //  Document  to  Inlets  &  Outlets
+
+                  Document  (  Document  )    1  -->  n    Inlet  (  Inlets  )
+                  Document  (  Document  )    1  -->  n    Outlet  (  Outlets  )
+
+      //  Element  to  Class
+
+            Curve  (  Curve  )    1  -->  n    Node  (  Nodes  )
+
+            //  Scale  to  Class
+
+                  Scale  (  Scale  )    1  -->  n    Scale Tone  (  Tones  )
+                  Scale  (  Scale  )    1  -->  n    Octave  (  Octaves  )
+                  Octave  (  Octave  )    1  -->  n    Octave Ordinal  (  Ordinals  )
+                  //  Scale Tone  (  Scale Tone  )    1  -->  1    Tone  (  Tone  )  //  !!!  There  is  no  class  named  Tone
+                  Scale Tone  (  Scale Tone  )    1  -->  1    Pitch  (  Pitch  )
+
+      //  Output  Channel  to  Operands
+
+            Wave File Output  (  As Wave File Output Left Channel  )    1  -->  1    Outlet  (  Left Channel  )
+            Wave File Output  (  As Wave File Output Right Channel  )    1  -->  1    Outlet  (  Right Channel  )
+
+      //  Patch  Relations
+
+            //  Patch  to  Operators
+
+                  //  Patch  to  Operator
+
+                        Patch  (  Patch  )    1  -->  n    Operator  (  Operators  )
+
+                  //  Patch  to  Arithmetic  Operator
+
+                        Patch  (  Patch  )    1  -->  n    Add  (  Additions  )
+                        Patch  (  Patch  )    1  -->  n    Value  (  Values  )
+                        Patch  (  Patch  )    1  -->  n    Substract  (  Substractions  )
+                        Patch  (  Patch  )    1  -->  n    Multiply  (  Multiplications  )
+                        Patch  (  Patch  )    1  -->  n    Divide  (  Divisions  )
+                        Patch  (  Patch  )    1  -->  n    Power  (  Powers  )
+                        Patch  (  Patch  )    1  -->  n    Time Add  (  Time Additions  )
+                        Patch  (  Patch  )    1  -->  n    Time Substract  (  Time Substractions  )
+                        Patch  (  Patch  )    1  -->  n    Time Multiply  (  Time Multiplications  )
+                        Patch  (  Patch  )    1  -->  n    Time Divide  (  Time Divisions  )
+                        Patch  (  Patch  )    1  -->  n    Time Power  (  Time Powers  )
+
+                  //  Patch  to  Partial  Operator
+
+                        Patch  (  Patch  )    1  -->  n    Sine  (  Sines  )
+                        Patch  (  Patch  )    1  -->  n    Noise  (  Noises  )
+
+                  //  Patch  to  Standard  Custom  Operator
+
+                        Patch  (  Patch  )    1  -->  n    Adder  (  Adders  )
+
+                  //  Patch  to  Black Box  and  Instrument  Operator
+
+                        Patch  (  Patch  )    1  -->  n    Black Box Operator  (  Black Box Operators  )
+                        Patch  (  Patch  )    1  -->  n    Instrument Operator  (  Instrument Operators  )
+
+                  //  Patch  to  IO  Operator
+
+                        Patch  (  Patch  )    1  -->  n    Inlet  (  Patch Inlets  )
+                        Patch  (  Patch  )    1  -->  n    Outlet  (  Patch Outlets  )
+                        Patch  (  Patch  )    1  -->  n    Curve In  (  Curves In  )
+                        Patch  (  Patch  )    1  -->  n    Sample Operator  (  Sample Operators  )
+                        Patch  (  Patch  )    1  -->  n    Wave In Operator  (  Wave In Operators  )
+                        Patch  (  Patch  )    1  -->  n    Midi File Operator  (  Midi File Operators  )
+                        Patch  (  Patch  )    1  -->  n    Midi In Operator  (  Midi In Operators  )
+
+                //  Patch  to  Pitch  Operator
+
+                        Patch  (  Patch  )    1  -->  n    Pitch Operator  (  Pitch Operators  )
+
+            //  Operators  Inherting  Operator    (  Should  become  Inheritance  )
+
+                  //  Arithmetic  Operators  Inheriting  Operator
+
+                        Value  (  As Value  )    1  -->  1    Operator  (  Base  )
+                        Add  (  As Add  )    1  -->  1    Operator  (  Base  )
+                        Substract  (  As Substract  )    1  -->  1    Operator  (  Base  )
+                        Multiply  (  As Multiply  )    1  -->  1    Operator  (  Base  )
+                        Divide  (  As Divide  )    1  -->  1    Operator  (  Base  )
+                        Power  (  As Power  )    1  -->  1    Operator  (  Base  )
+                        Time Add  (  As Time Add  )    1  -->  1    Operator  (  Base  )
+                        Time Substract  (  As Time Substract  )    1  -->  1    Operator  (  Base  )
+                        Time Multiply  (  As Time Multiply  )    1  -->  1    Operator  (  Base  )
+                        Time Divide  (  As Time Divide  )    1  -->  1    Operator  (  Base  )
+                        Time Power  (  As Time Power  )    1  -->  1    Operator  (  Base  )
+
+                  //  Partial  Operators  Inheriting  Operator
+
+                        Sine  (  As Sine  )    1  -->  1    Operator  (  Base  )
+                        Noise  (  As Noise  )    1  -->  1    Operator  (  Base  )
+
+                  //  Standard  Custom  Operators  Inheriting  Operator
+
+                        Adder  (  As Adder  )    1  -->  1    Operator  (  Base  )
+
+                  //  Black Box  &  Instrument  Operators  Inheriting  Operator
+
+                        Black Box Operator  (  As Black Box Operator  )    1  -->  1    Operator  (  Base  )
+                        Instrument Operator  (  As Instrument Operator  )    1  -->  1    Operator  (  Base  )
+
+                  //  IO  Operators  Inheriting  Operator
+
+                        Inlet  (  As Patch Inlet  )    1  -->  1    Operator  (  Base  )
+                        Outlet  (  As Patch Outlet  )    1  -->  1    Operator  (  Base  )
+                        Curve In  (  As Curve In  )    1  -->  1    Operator  (  Base  )
+                        Sample Operator  (  As Sample Operator  )    1  -->  1    Operator  (  Base  )
+                        Wave In Operator  (  As Wave In Operator  )    1  -->  1    Operator  (  Base  )
+                        Midi File Operator  (  As Midi File Operator  )    1  -->  1    Operator  (  Base  )
+                        Midi In Operator  (  As Midi In Operator  )    1  -->  1    Operator  (  Base  )
+
+                  //  Pitch  Operator  Inheriting  Operator
+
+                        Pitch Operator  (  As Pitch Operator  )    1  -->  1    Operator  (  Base  )
+
+            //  Operator  to  Operands
+
+                  //  Arithemetic  Operator  to  Operands
+      
+                        Add  (  As Add Operand A  )    n  -->  1    Operator  (  Operand A  )
+                        Add  (  As Add Operand B  )    n  -->  1    Operator  (  Operand B  )
+
+                        Substract  (  As Substract Operand A  )    n  -->  1    Operator  (  Operand A  )
+                        Substract  (  As Substract Operand B  )    n  -->  1    Operator  (  Operand B  )
+
+                        Multiply  (  As Multiply Operand A  )    n  -->  1    Operator  (  Operand A  )
+                        Multiply  (  As Multiply Operand B  )    n  -->  1    Operator  (  Operand B  )
+                        Multiply  (  As Multiply Axis  )    n  -->  1    Operator  (  Axis  )
+
+                        Divide  (  As Divide Numerator  )    n  -->  1    Operator  (  Numerator  )
+                        Divide  (  As Divide Denominator  )    n  -->  1    Operator  (  Denominator  )
+                        Divide  (  As Divide Axis  )    n  -->  1    Operator  (  Axis  )
+
+                        Power  (  As Power Arithmetic Base  )    n  -->  1    Operator  (  Arithmetic Base  )
+                        Power  (  As Power Exponent  )    n  -->  1    Operator  (  Exponent  )
+
+                        Time Add  (  As Time Add Level Operand  )    n  -->  1    Operator  (  Level  )
+                        Time Add  (  As Time Add Time Difference Operand  )    n  -->  1    Operator  (  Time Difference  )
+
+                        Time Substract  (  As Time Substract Level Operand  )    n  -->  1    Operator  (  Level  )
+                        Time Substract  (  As Time Substract Time Difference Operand  )    n  -->  1    Operator  (  Time Difference  )
+
+                        Time Multiply  (  As Time Multiply Level Operand  )    n  -->  1    Operator  (  Level  )
+                        Time Multiply  (  As Time Multiply Time Multiplier Operand  )    n  -->  1    Operator  (  Time Multiplier  )
+                        Time Multiply  (  As Time Multiply Axis Operand  )    n  -->  1    Operator  (  Axis  )
+
+                        Time Divide  (  As Time Divide Level Operand  )    n  -->  1    Operator  (  Level  )
+                        Time Divide  (  As Time Divide Time Divider Operand  )    n  -->  1    Operator  (  Time Divider  )
+                        Time Divide  (  As Time Divide Axis Operand  )    n  -->  1    Operator  (  Axis  )
+
+                        Time Power  (  As Time Power Level Operand  )    n  -->  1    Operator  (  Level  )
+                        Time Power  (  As Time Power Time Exponent  )    n  -->  1    Operator  (  Time Exponent  )
+
+                  //  Partial  Operator  to  Operands
+
+                        Sine  (  As Sine Volume  )    n  -->  1    Operator  (  Volume  )
+                        Sine  (  As Sine Pitch  )    n  -->  1    Operator  (  Pitch  )
+                        Sine  (  As Sine Level  )    n  -->  1    Operator  (  Level  )
+                        Sine  (  As Sine Phase Start  )    n  -->  1    Operator  (  Phase Start  )
+
+                        Noise  (  As Noise Level  )    n  -->  1    Operator  (  Level  )
+                        Noise  (  As Noise Volume  )    n  -->  1    Operator  (  Volume  )
+                        Noise  (  As Noise Low Pitch  )    n  -->  1    Operator  (  Low Pitch  )
+                        Noise  (  As Noise High Pitch  )    n  -->  1    Operator  (  High Pitch  )
+                        Noise  (  As Noise Pitch Interval  )    n  -->  1    Operator  (  Pitch Interval  )
+
+                  //  Standard  Custom  Operators  to  Operands
+
+                        Adder  (  As Adder Operand 1  )    n  -->  1    Operator  (  Operand 1  )
+                        Adder  (  As Adder Operand 2  )    n  -->  1    Operator  (  Operand 2  )
+                        Adder  (  As Adder Operand 3  )    n  -->  1    Operator  (  Operand 3  )
+                        Adder  (  As Adder Operand 4  )    n  -->  1    Operator  (  Operand 4  )
+                        Adder  (  As Adder Operand 5  )    n  -->  1    Operator  (  Operand 5  )
+                        Adder  (  As Adder Operand 6  )    n  -->  1    Operator  (  Operand 6  )
+                        Adder  (  As Adder Operand 7  )    n  -->  1    Operator  (  Operand 7  )
+                        Adder  (  As Adder Operand 8  )    n  -->  1    Operator  (  Operand 8  )
+                        Adder  (  As Adder Operand 9  )    n  -->  1    Operator  (  Operand 9  )
+                        Adder  (  As Adder Operand 10  )    n  -->  1    Operator  (  Operand 10  )
+                        Adder  (  As Adder Operand 11  )    n  -->  1    Operator  (  Operand 11  )
+                        Adder  (  As Adder Operand 12  )    n  -->  1    Operator  (  Operand 12  )
+                        Adder  (  As Adder Operand 13  )    n  -->  1    Operator  (  Operand 13  )
+                        Adder  (  As Adder Operand 14  )    n  -->  1    Operator  (  Operand 14  )
+                        Adder  (  As Adder Operand 15  )    n  -->  1    Operator  (  Operand 15  )
+                        Adder  (  As Adder Operand 16  )    n  -->  1    Operator  (  Operand 16  )
+
+                  //  Black Box  &  Instrument  Operators  to  Operands
+
+                        Black Box Operator  (  As Black Box Operator Operand  )    n  -->  n    Operator  (  Black Box Operands  )
+
+                        Instrument Operator  (  As Instrument Operator Operand  )    n  -->  n    Operator  (  Instrument Operands  )
+
+                  //  Inlets  &  Outlets  to  Operand
+
+                        Inlet  (  As Inlet Operand  )    n  -->  1    Operator  (  Operand  )
+
+                        Outlet  (  As Outlet Operand  )    n  -->  1    Operator  (  Operand  )
+
+            //  Operator  to  Reference
+
+                  //  (  perhaps  put  the  term  'Reference'  in  the  object  names  some  day  ,  for  clarity  .  )
+
+                  Black Box Operator  (  As Black Box Operator  )    n  -->  1    Document  (  Black Box  )
+                  Instrument Operator  (  As Instrument Operator  )    n  -->  1    Document  (  Instrument  )
+                  Curve In  (  As Curve In  )    n  -->  1    Curve  (  Curve  )
+                  Sample Operator  (  As Sample Operator  )    n  -->  1    Sample  (  Sample  )
+                  Wave In Operator  (  As Wave In Operator  )    n  -->  1    Wave In  (  Wave In  )
+                  Midi File Operator  (  As Midi File Operator  )    n  -->  1    Midi File  (  Midi File  )
+                  Midi In Operator  (  As Midi In Operator  )    n  -->  1    Midi In  (  Midi In  )
+
+          //  Other  Patch  Relations
+
+                Pitch Operator  (  As Pitch Operator  )    n  -->  1    Pitch  (  Pitch  )
+
+//  Attributes
+
+      //  General  Classes'  Attributes
+
+            Workspace  -->  Name  (  String  )
+
+            Pitch  -->  Hertz  (  Double  )      //  Should  become  derived  :  Hertz  =  Base Hertz  *  Factor
+            Pitch  -->  Base Hertz  (  Double  )
+            Pitch  -->  Factor  (  Double  )
+
+            Document  -->  Name  (  String  )
+
+            Curve  -->  Name  (  String  )
+            Curve  -->  Time  (  Double  )  //  Would  have  been  a  parameter  of  the  Value  method.
+            Curve  -->  Value  (  Double  )  //  Would  have  a  method  if  a  method  could  have  a  return  value.
+
+            Node  -->  Time  (  Double )
+            Node  -->  Value  (  Double )
+            Node  -->  Type  (  Integer  )      //  Should  become  enum  Node Types  instead  of  Integer
+            Node  -->  Direction  (  Double  )
+
+            Dimensioner  -->  Name  (  String  )
+
+            Analyser  -->  Name  (  String  )
+
+            Sample  -->  Name  (  String  )
+            Sample  -->  File Path  (  String  )
+            Sample  -->  Loaded  (  Boolean  )      //  Write  access  should  become  private
+            Sample  -->  Mono / Stereo  (  Integer  )      //  Should  become  enum  Mono / Stereo Codes
+            Sample  -->  Bit  (  Integer  )      //  Should  become  enum  Bit Codes  ,  should  get  Default  Value  Sixteen Bit
+            Sample  -->  Sampling Rate  (  Long  )      //  Should  get  Default  Value  44100
+            Sample  -->  Real Time Per Virtual Time  (  Double  )      //  Should  get  Default  Value  1
+            Sample  -->  Interpolation  (  Integer  )      //  Should  become  enum  Wave Interpolation Types  with  Default  Value  Line Interpolation
+            Sample  -->  Active  (  Boolean  )      //  Should  get  Default  Value  True
+            Sample  -->  Amplifier  (  Double  )      //  Should  get  Default  Value  1
+            Sample  -->  Bytes To Skip  (  Long  )
+            Sample  -->  Time  (  Double  )
+            Sample  -->  Value  (  Double  )
+
+            Sample Sample  -->  Value  (  Integer  )
+
+            Midi File  -->  Name  (  String  )
+
+            Wave File Output  -->  Name  (  String  )
+            Wave File Output  -->  Mono / Stereo  (  Integer  )      //  Should  become  Enum  Mono / Stereo Codes
+            Wave File Output  -->  Bit  (  Integer  )      //  Should  become  Enum  Bit Codes,  with  Default  Value  Sixteen Bit
+            Wave File Output  -->  Sampling Rate  (  Long  )      //  Should  get  Default  Value  44100
+            Wave File Output  -->  File Path  (  String  )
+            Wave File Output  -->  Start Time  (  Double  )      //  Should  get  Default  Value  0
+            Wave File Output  -->  End Time  (  Double  )      //  Should  get  Default  Value  1
+            Wave File Output  -->  Duration  (  Double  )      //  Should  become  derived  :  Duration  =  EndTime  -  StartTime
+            Wave File Output  -->  Real Time Per Virtual Time  (  Double  )      //  Should  get  Default  Value  1
+            Wave File Output  -->  Amplifier  (  Double  )      //  Should  get  Default  Value  1
+
+            Midi File Output  -->  Name  (  String  )
+
+            Wave In  -->  Name  (  String  )
+
+            Wave Out  -->  Name  (  String  )
+
+            Midi In  -->  Name  (  String  )
+
+            Midi Out  -->  Name  (  String  )
+
+            Scale  -->  Name  (  String  )
+            Scale  -->  Constant Ordinals Per Octave  (  Boolean  )
+            Scale  -->  Ordinals Per Octave  (  Long  )
+
+            Scale Tone  -->  Name  (  String  )
+
+            Octave  -->  Name  (  String  )
+
+            Octave Ordinal  -->  Name  (  String  )
+            Octave Ordinal  -->  Scale Tone Position  (  String  )
+
+            Sequence  -->  Name  (  String  )
+
+            Sequence Tone  -->  Start  (  Double  )
+            Sequence Tone  -->  Length  (  Double  )
+            Sequence Tone  -->  Primary Scale Reference  (  Integer  )      //  Should  become  an  enum
+            Sequence Tone  -->  Scale Position  (  Long  )
+            Sequence Tone  -->  Scale Octave  (  Long  )
+            Sequence Tone  -->  Scale Ordinal  (  Long  )
+
+      //  Patch  Attributes
+
+            //  Patch
+
+                  Patch  -->  Name  (  String  )
+
+            //  Operators
+
+                  //  Operator
+
+                        Operator  -->  Name  (  String  )
+                        Operator  -->  Result  (  Double  )
+                        Operator  -->  Time  (  Double  )
+
+                  //  Arithmetic  Operators
+
+                        Value  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Value  -->  Result  (  Double  )
+
+                        Add  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Add  -->  Result  (  Double  )
+
+                        Substract  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Substract  -->  Result  (  Double  )
+
+                        Multiply  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Multiply  -->  Result  (  Double  )
+
+                        Divide  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Divide  -->  Result  (  Double  )
+
+                        Power  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Power  -->  Result  (  Double  )
+
+                        Time Add  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Time Add  -->  Result  (  Double  )
+
+                        Time Substract  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Time Substract  -->  Result  (  Double  )
+
+                        Time Multiply  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Time Multiply  -->  Result  (  Double  )
+
+                        Time Divide  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Time Divide  -->  Result  (  Double  )
+
+                        Time Power  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Time Power  -->  Result  (  Double  )
+
+                  //  Partial  Operators
+
+                        Sine  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Sine  -->  Result  (  Double  )
+
+                        Noise  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Noise  -->  Result  (  Double  )
+
+                  //  Standard  Custom  Operators
+
+                        Adder  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Adder  -->  Result  (  Double  )
+
+                        //  Wave  Transforming  Effects  ...
+
+                        //  Ear  Data  Transforming  Effect  ...
+
+                  //  Black Box  &  Instrument  Operators
+
+                        Black Box  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Black Box  -->  Result  (  Double  )
+
+                        Instrument  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Instrument  -->  Result  (  Double  )
+
+                  //  IO  Operators
+
+                        Inlet  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Inlet  -->  Result  (  Double  )
+
+                        Outlet  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Outlet  -->  Result  (  Double  )
+
+                        Curve In  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Curve In  -->  Result  (  Double  )
+
+                        Sample Operator  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Sample Operator  -->  Result  (  Double  )
+
+                        Wave In Operator  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Wave In Operator  -->  Result  (  Double  )
+
+                        Midi File Operator  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Midi File Operator  -->  Result  (  Double  )
+
+                        Midi In Operator  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Midi In Operator  -->  Result  (  Double  )
+
+                        Pitch Operator  -->  Type  (  Integer  )  //  Should  become  Operator  Type  Enum
+                        Pitch Operator  -->  Result  (  Double  )
+
+//  Methods
+
+      //  Operators
+
+            Method  Override  Add  .  Result  .  Get
+                if (
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) == 0 ||
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) == 0 
+                ) {
+                    return "" ;
+                }
+                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                char *tStopString ;
+                return DoubleToString (
+                    strtod ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) , &tStopString ) +
+                    strtod ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" )  -> Value ( ) , &tStopString )
+                    ) ;
+            End  Method
+
+            Method  Override  Substract  .  Result  .  Get
+                if (
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) == 0 ||
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) == 0 
+                ) {
+                    return "" ;
+                }
+                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                char *tStopString ;
+                return DoubleToString (
+                    strtod ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) , &tStopString ) -
+                    strtod ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" )  -> Value ( ) , &tStopString )
+                    ) ;
+            End  Method
+    
+            Method  Override  Multiply  .  Result  .  Get
+                  CItem* tItem = aThis -> ItemAttributes ( ) -> ParentItem ( ) ;
+                  CItem* tOperandA = tItem -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) ;
+                  if ( tOperandA == 0 )  { return "" ; }
+                  CItem* tOperandB = tItem -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) ;
+                  if ( tOperandB == 0 )  { return "" ; }
+                  CString tItemBaseTime = tItem -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ;
+                  tOperandA -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                  tOperandB -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                  CItem* tAxis = tItem -> RelatedItems ( ) -> Item ( "Axis" ) -> Item ( ) ;
+                  if ( tAxis == 0 ) {
+                        return DoubleToString (
+                              StringToDouble ( tOperandA -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) *
+                              StringToDouble ( tOperandB -> ItemAttributes ( ) -> Item ( "Result" )  -> Value ( ) )
+                          ) ;
+                  }
+                  else {
+                        tAxis -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                        double tAxisResult = StringToDouble ( tAxis -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        double tOperandAResult = StringToDouble ( tOperandA -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        double tOperandBResult = StringToDouble ( tOperandB -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        return DoubleToString ( ( tOperandAResult - tAxisResult ) * tOperandBResult + tAxisResult ) ;
+                  }
+            End  Method
+    
+            Method  Override  Divide  .  Result  .  Get
+                  CItem* tItem = aThis -> ItemAttributes ( ) -> ParentItem ( ) ;
+                  CItem* tOperandA = tItem -> RelatedItems ( ) -> Item ( "Numerator" ) -> Item ( ) ;
+                  if ( tOperandA == 0 )  { return "" ; }
+                  CItem* tOperandB = tItem -> RelatedItems ( ) -> Item ( "Denominator" ) -> Item ( ) ;
+                  if ( tOperandB == 0 )  { return "" ; }
+                  CString tItemBaseTime = tItem -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ;
+                  tOperandA -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                  tOperandB -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                  CItem* tAxis = tItem -> RelatedItems ( ) -> Item ( "Axis" ) -> Item ( ) ;
+                  double  tOperandBResult  =  StringToDouble  (  tOperandB -> ItemAttributes ( ) -> Item ( "Result" )  -> Value ( )  )  ;
+                  if ( tAxis == 0 ) {
+                        if  (  tOperandBResult  == 0.0  ) {  return  ""  ;  }
+                        return DoubleToString (
+                              StringToDouble ( tOperandA -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) /
+                              tOperandBResult
+                          ) ;
+                  }
+                  else {
+                        tAxis -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                        double tAxisResult = StringToDouble ( tAxis -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        if  (  tOperandBResult  ==  0.0  ) {  return  DoubleToString  (  tAxisResult  )  ;  }
+                        double tOperandAResult = StringToDouble ( tOperandA -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        return DoubleToString ( ( tOperandAResult - tAxisResult ) / tOperandBResult + tAxisResult ) ;
+                  }
+            End  Method
+
+            Method  Override  Power  .  Result  .  Get
+                  CItem* tItem = aThis -> ItemAttributes ( ) -> ParentItem ( ) ;
+                  CItem*  tArithmeticBase  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Arithmetic Base"  )  ->  Item  (  )  ;
+                  if  (  tArithmeticBase  ==  0  )  {  return  ""  ;  }
+                  CItem*  tExponent  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Exponent"  )  ->  Item  (  )  ;
+                  if  (  tExponent  ==  0  )  {  return  ""  ;  }
+                  CString  tTime  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  )  ;
+                  tArithmeticBase  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  tTime  )  ;
+                  tExponent  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  tTime  )  ;
+                  return  DoubleToString  (  pow  (  
+                        StringToDouble  (  tArithmeticBase  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )  ,
+                        StringToDouble  (  tExponent  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )
+                    ))  ;
+            End  Method
+
+            Method  Override  Time Add  .  Result  .  Get
+                  //  If Level Is Nothing Then Exit Property
+                        CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                        CItem*  tBase  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        CItem*  tLevel  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Level"  )  ->  Item  (  )  ;
+                        CItem*  tTimeDifference  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Time Difference"  )  ->  Item  (  )  ;
+                        double  tTime  =  StringToDouble  ( tBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  -> Value  (  )  )  ;
+                        if  (  tLevel  ==  0  )  {  return  ""  ;  }  
+                  //  Dim tTimeDifference As Double
+                        double  tTimeDifferenceResult  =  0  ;
+                  //  If Not TimeDifference Is Nothing Then
+                        if  (  tTimeDifference  !=  0  )  {
+                              //  TimeDifference.Time = Time
+                                    CItem*  tTimeDifferenceBase  =  tTimeDifference  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                                    tTimeDifferenceBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  )  )  ;
+                              //  tTimeDifference = TimeDifference.Result
+                                    tTimeDifferenceResult  =  StringToDouble  ( tTimeDifference  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )  ;
+                        }
+                  //  Level.Time = Time + tTimeDifference
+                        CItem*  tLevelBase  =  tLevel  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        tLevelBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  +  tTimeDifferenceResult  )  )  ;
+                  //  Result = Level.Result
+                        return  tLevel  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  ->  Value  (  )  ;
+            End  Method
+
+            Method  Override  Time Substract  .  Result  .  Get
+                  //  If Level Is Nothing Then Exit Property
+                        CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                        CItem*  tBase  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        CItem*  tLevel  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Level"  )  ->  Item  (  )  ;
+                        CItem*  tTimeDifference  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Time Difference"  )  ->  Item  (  )  ;
+                        double  tTime  =  StringToDouble  ( tBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  -> Value  (  )  )  ;
+                        if  (  tLevel  ==  0  )  {  return  ""  ;  }  
+                  //  Dim tTimeDifference As Double
+                        double  tTimeDifferenceResult  =  0  ;
+                  //  If Not TimeDifference Is Nothing Then
+                        if  (  tTimeDifference  !=  0  )  {
+                              //  TimeDifference.Time = Time
+                                    CItem*  tTimeDifferenceBase  =  tTimeDifference  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                                    tTimeDifferenceBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  )  )  ;
+                              //  tTimeDifference = TimeDifference.Result
+                                    tTimeDifferenceResult  =  StringToDouble  ( tTimeDifference  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )  ;
+                        }
+                  //  Level.Time = Time + tTimeDifference
+                        CItem*  tLevelBase  =  tLevel  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        tLevelBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  -   tTimeDifferenceResult  )  )  ;
+                  //  Result = Level.Result
+                        return  tLevel  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  ->  Value  (  )  ;
+            End  Method
+
+            Method  Override  Time Multiply  .  Result  .  Get
+                  //  If Level Is Nothing Then Exit Property
+                        CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                        CItem*  tBase  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        CItem*  tLevel  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Level"  )  ->  Item  (  )  ;
+                        CItem*  tTimeMultiplier  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Time Multiplier"  )  ->  Item  (  )  ;
+                        double  tTime  =  StringToDouble  ( tBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  -> Value  (  )  )  ;
+                        if  (  tLevel  ==  0  )  {  return  ""  ;  }  
+                  //  Dim tTimeMultiplier As Double
+                        double  tTimeMultiplierResult  =  0  ;
+                  //  If Not TimeMultiplier Is Nothing Then
+                        if  (  tTimeMultiplier  !=  0  )  {
+                              //  TimeMultiplier.Time = Time
+                                    CItem*  tTimeMultiplierBase  =  tTimeMultiplier  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                                    tTimeMultiplierBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  )  )  ;
+                              //  tTimeMultiplier = TimeMultiplier.Result
+                                    tTimeMultiplierResult  =  StringToDouble  ( tTimeMultiplier  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )  ;
+                        }
+                  //  Level.Time = Time + tTimeMultiplier
+                        CItem*  tLevelBase  =  tLevel  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        tLevelBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  *  tTimeMultiplierResult  )  )  ;
+                  //  Result = Level.Result
+                        return  tLevel  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  ->  Value  (  )  ;
+            End  Method
+
+            Method  Override  Time Divide  .  Result  .  Get
+                  //  If Level Is Nothing Then Exit Property
+                        CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                        CItem*  tBase  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        CItem*  tLevel  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Level"  )  ->  Item  (  )  ;
+                        CItem*  tTimeDivider  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Time Divider"  )  ->  Item  (  )  ;
+                        double  tTime  =  StringToDouble  ( tBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  -> Value  (  )  )  ;
+                        if  (  tLevel  ==  0  )  {  return  ""  ;  }  
+                  //  Dim tTimeDivider As Double
+                        double  tTimeDividerResult  =  1  ;
+                  //  If Not TimeDivider Is Nothing Then
+                        if  (  tTimeDivider  !=  0  )  {
+                              //  TimeDivider.Time = Time
+                                    CItem*  tTimeDividerBase  =  tTimeDivider  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                                    tTimeDividerBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  )  )  ;
+                              //  tTimeDivider = TimeDivider.Result
+                                    tTimeDividerResult  =  StringToDouble  ( tTimeDivider  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )  ;
+                              //  If tTimeDivider = 0 Then tTimeDivider = 1
+                                    if  (  tTimeDividerResult  ==  0  )  {  tTimeDividerResult  =  1  ;  }
+                        }
+                  //  Level.Time = Time + tTimeDivider
+                        CItem*  tLevelBase  =  tLevel  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        tLevelBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  /  tTimeDividerResult  )  )  ;
+                  //  Result = Level.Result
+                        return  tLevel  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  ->  Value  (  )  ;
+            End  Method
+
+            Method  Override  Sine  .  Result  .  Get
+                // If Volume Is Nothing Or Pitch Is Nothing Then Exit Property
+                    if (
+                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) == 0 ||
+                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) == 0
+                    )
+                    {
+                        return "" ;
+                    }
+                // Extra's 
+                    double Pi = 3.1415926535897932384626433832795 ;
+                // If Level Is Nothing And PhaseStart Is Nothing Then
+                    if (
+                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Level" ) -> Item ( ) == 0 &&
+                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Phase Start" ) -> Item ( ) == 0
+                    )
+                    {
+                        // Volume.Time = Time
+                            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                        // Pitch.Time = Time
+                            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                        // Extra's
+                            double tVolume = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                            double tPitch = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                            double tTime = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                        // Result = Volume.Result * Sin(2 * Pi * Pitch.Result * Time)
+                            return DoubleToString ( tVolume * sin ( 2 * Pi * tPitch * tTime ) ) ;
+                    }
+                // Else
+                    else
+                    {
+                        // Dim tLevel As Double
+                            double tLevel = 0;
+                        // Dim tPhaseStart As Double
+                            double tPhaseStart = 0;
+                        // Volume.Time = Time
+                            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                        // Pitch.Time = Time
+                            aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                                aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                        // If Not Level Is Nothing Then
+                            if (aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Level" ) -> Item ( ) != 0 ) {
+                                // Level.Time = Time
+                                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Level" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                                // tLevel = Level.Result
+                                    tLevel = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Level" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) );
+                            }
+                        // If Not PhaseStart Is Nothing Then
+                            if (aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Phase Start" ) -> Item ( ) != 0 ) {
+                                // PhaseStart.Time = Time
+                                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Phase Start" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                                // tPhaseStart = PhaseStart.Result
+                                    tPhaseStart = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Phase Start" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) );
+                            }
+                        // Extra's
+                            double tVolume = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Volume" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                            double tPitch = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Pitch" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                            double tTime = StringToDouble ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                        // Result = tLevel + Volume.Result * Sin((tPhaseStart * 2 * Pi) + 2 * Pi * Pitch.Result * Time)
+                            return DoubleToString ( tLevel + tVolume * sin ( ( tPhaseStart * 2 * Pi ) + 2 * Pi * tPitch * tTime ) ) ;
+                    }
+            End  Method
+
+            Method  Override  Outlet  .  Result  .  Get
+                // If Operand Is Nothing Then Exit Property
+                    if ( aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand" ) -> Item ( ) == 0 ) { return "" ; }
+                // Operand.Time = Time
+                    aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value (
+                        aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                // Result = Operand.Result
+                    return aThis -> ItemAttributes ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Operand" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ;
+            End  Method
+
+      //  Other  Objects
+
+            Method  Wave File Output  .  Start
+                // Extra
+                    double tRealTimePerVirtualTime = StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "Real Time Per Virtual Time" ) -> Value ( ) ) ;
+                // If RealTimePerVirtualTime = 0 Then Exit Function
+                    if ( tRealTimePerVirtualTime == 0.0 ) { return ; }
+                // Extra
+                    double tSamplingRate = StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "Sampling Rate" ) -> Value ( ) ) ;
+                // If SamplingRate = 0 Then Exit Function
+                    if ( tSamplingRate == 0.0 ) { return ; }
+                // Extra
+                    CString tFilePath = aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "File Path" ) -> Value ( ) ;
+                // If FilePath = "" Then Exit Function
+                    if ( tFilePath == "" ) { return ; }
+                // If FileExists(FilePath) Then Kill FilePath
+                    if ( FileExists ( tFilePath ) ) { DeleteFile ( tFilePath ) ; }
+                // Start = True
+                    // Not translated
+                // Dim t As Double
+                    double t ;
+                // Dim tFileNumber As Long
+                    HANDLE tFileNumber ;
+                // Dim tDouble As Double
+                    double tDouble ;
+                // Dim tInteger As Integer
+                    short tInteger ;
+                // Dim tStep As Double
+                    double tStep ;
+                // tStep = 1 / RealTimePerVirtualTime / SamplingRate
+                    tStep = 1.0 / tRealTimePerVirtualTime / tSamplingRate ;
+                // Extra
+                    DWORD tBytesWritten ;
+                // tFileNumber = FreeFile
+                // Open FilePath For Binary As tFileNumber
+                    tFileNumber = CreateFile ( tFilePath , GENERIC_WRITE , FILE_SHARE_READ , 0 , OPEN_ALWAYS , FILE_ATTRIBUTE_NORMAL , 0 ) ;
+                    // Extra
+                        double tStartTime = StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "Start Time" ) -> Value ( ) ) ;
+                        double tEndTime = StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "End Time" ) -> Value ( ) ) ;
+                     // For t = StartTime To EndTime Step tStep
+                        for ( t = tStartTime ; t <= tEndTime ; t += tStep ) {
+                            // tDouble = 0
+                                tDouble = 0 ;
+                            // If Not LeftChannel Is Nothing Then
+                                if ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Left Channel" ) -> Item ( ) != 0 ) {
+                                    // LeftChannel.Time = t
+                                        aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Left Channel" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( DoubleToString ( t ) ) ;
+                                    // tDouble = tDouble + LeftChannel.Result
+                                        tDouble += StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Left Channel" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                                }
+                            // If Not RightChannel Is Nothing Then
+                                if ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Right Channel" ) -> Item ( ) != 0 ) {
+                                    // RightChannel.Time = t
+                                        aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Right Channel" ) -> Item ( ) -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( DoubleToString ( t ) ) ;
+                                    // tDouble = tDouble + RightChannel.Result
+                                        tDouble += StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> RelatedItems ( ) -> Item ( "Reft Channel" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                                }
+                            // tDouble = tDouble * Amplifier
+                                tDouble = tDouble * StringToDouble ( aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "Amplifier" ) -> Value ( ) ) ;
+                            // If tDouble > 32767 Then tDouble = 32767
+                                if ( tDouble > 32767 ) { tDouble = 32767 ; } 
+                            // If tDouble < -32768 Then tDouble = -32768
+                                if ( tDouble < -32768 ) { tDouble = -32768 ; } 
+                            // tInteger = Fix(tDouble)
+                                tInteger = ( int ) tDouble ;
+                            // Put tFileNumber, , tInteger
+                                WriteFile ( tFileNumber , & tInteger  , 2 , & tBytesWritten , 0 ) ;
+                        }
+                // Close tFileNumber
+                    CloseHandle ( tFileNumber ) ;
+                // MsgBox "Done."
+                    MessageBox ( 0 , "Done." , "" , MB_OK ) ;
+            End  Method
+
+            Method  Workspace  .  Hello World
+                MessageBox ( 0 , "Hello world!" , "" , MB_OK ) ;
+            End  Method
+
+        Method  Override  Curve  .  Value  .  Get
+              //  Declarations
+                    int  i  ;
+                    CItem*  tNodeA  ;
+                    CItem*  tNodeB  ;
+                    CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                    double  tTime  =  StringToDouble  (  tItem  ->  ItemAttributes  (  )  -> Item  (  "Time"  )  ->  Value  (  )  )  ;
+              //  Find  the  nodes  the  time  is  in  between
+                    CRelatedList*  tNodes  =  tItem  ->  RelatedLists  (  )  ->  Item  (  "Nodes"  )  ;
+                    CItem*  tNode  ;
+                    for  (  i  =  0  ;  i  <=  tNodes  ->  StorageCount  (  )  -  1  ;  i  ++  )  {
+                          if  (  tNodes  ->  PositionUsed  (  i  )  ==  TRUE  )  {
+                                tNode  =  tNodes  ->  Item  (  i  )  ;
+                                if  (  StringToDouble  (  tNode  -> ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  )  )  >  tTime  )  {
+                                      tNodeB  =  tNode  ;
+                                      break  ;
+                                }
+                                tNodeA  =  tNode  ;
+                          }
+                    }
+                    if  (  tNodeA  ==  0  ||  tNodeB  ==  0  )  {  return  ""  ;  }
+                //  Calculate the Value
+                      CString  tNodeType  =  tNodeA  ->  ItemAttributes  (  )  ->  Item  (  "Type"  )  ->  Value  (  )  ;
+                      if  (  tNodeType  ==  "0"  )  {
+                            //  Off Node Type
+                                  return  "0"  ;
+                      }
+                      if  (  tNodeType  ==  "1"  )  {
+                            //  Block Node Type
+                                  return  tNodeA  -> ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                      }
+                      if  (  tNodeType  ==  "2"  )  {
+                            //  Line Node Type
+                                  double  tNodeATime  =  StringToDouble  (  tNodeA  ->  ItemAttributes  (  )  -> Item  (  "Time"  )  ->  Value  (  )  )  ;
+                                  double  tNodeBTime  =  StringToDouble  (  tNodeB  ->  ItemAttributes  (  )  -> Item  (  "Time"  )  ->  Value  (  )  )  ;
+                                  double  tNodeAValue  =  StringToDouble  (  tNodeA  ->  ItemAttributes  (  )  -> Item  (  "Value"  )  ->  Value  (  )  )  ;
+                                  if  (  tNodeBTime <= tNodeATime  )  {
+                                        return  DoubleToString (  tNodeAValue  )  ;
+                                  }
+                                  double  tNodeBValue  =  StringToDouble  (  tNodeB  ->  ItemAttributes  (  )  -> Item  (  "Value"  )  ->  Value  (  )  )  ;
+                                  return  DoubleToString  (  tNodeAValue  +  (  tNodeBValue  -  tNodeAValue  )  *  (  (  tTime  -  tNodeATime  )  /  (  tNodeBTime  -  tNodeATime  )  )  )  ;
+                      }
+                      /*
+                        Case CurveNodeType
+                            With JMathMisc.Interpolate
+                                .DerivedDirection = True
+                                'Times
+                                    .TimeMinus1 = tNodeA.Time
+                                    .Time0 = tNodeA.Time
+                                    .Time1 = tNodeB.Time
+                                    .Time2 = tNodeB.Time
+                                'Values
+                                    .ValueMinus1 = tNodeA.Value
+                                    .Value0 = tNodeA.Value
+                                    .Value1 = tNodeB.Value
+                                    .Value2 = tNodeB.Value
+                                'Result
+                                    .Time = aTime
+                                    Value = .Value
+                            End With
+                        Case DirectedNodeType
+                            With JMathMisc.Interpolate
+                                .DerivedDirection = False
+                                'Time
+                                    .TimeMinus1 = tNodeA.Time
+                                    .Time0 = tNodeA.Time
+                                    .Time1 = tNodeB.Time
+                                    .Time2 = tNodeB.Time
+                                'Value
+                                    .ValueMinus1 = tNodeA.Value
+                                    .Value0 = tNodeA.Value
+                                    .Value1 = tNodeB.Value
+                                    .Value2 = tNodeB.Value
+                                'Direction
+                                    .Direction0 = tNodeA.Direction
+                                    .Direction1 = tNodeB.Direction
+                                'Result
+                                    .Time = aTime
+                                    Value = .Value
+                            End With
+                      */
+        End  Method
+
+        Method  Override  Curve In  .  Result  .  Get
+              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+              CItem*  tCurve  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Curve"  )  ->  Item  (  )  ;
+              if  (  tCurve  ==  0  )  {  return  ""  ;  }
+              CString  tTime  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  )  ;
+              tCurve  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  tTime  )  ;
+              return  tCurve  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+        End  Method
+
+        Method  Override  Sample  .  Value  .  Get
+              CItem* tItem = aThis -> ItemAttributes ( ) -> ParentItem ( ) ;
+              // If Not Loaded Or Not Active Then Exit Function
+                    bool tLoaded = StringToBoolean ( tItem -> ItemAttributes ( ) -> Item ( "Loaded" ) -> Value ( ) ) ;
+                    if ( ! tLoaded ) { return "" ; }
+                    bool tActive = StringToBoolean ( tItem -> ItemAttributes ( ) -> Item ( "Active" ) -> Value ( ) ) ;
+                    if ( ! tActive ) { return "" ; }
+              // If RealTimePerSampleTime = 0 Then Exit Function
+                    double tRealTimePerSampleTime = StringToDouble ( tItem -> ItemAttributes ( ) -> Item ( "Real Time Per Virtual Time" ) -> Value ( ) ) ;
+                    if ( tRealTimePerSampleTime == 0 ) { return "" ; }
+              // Dim tSample As Double
+              // tSample = (aTime * SamplingRate) / RealTimePerSampleTime
+                    double tTime = StringToDouble ( tItem -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                    double tSamplingRate = StringToDouble ( tItem -> ItemAttributes ( ) -> Item ( "Sampling Rate" ) -> Value ( ) ) ;
+                    double tSamplePosition = ( tTime * tSamplingRate ) / tRealTimePerSampleTime ;
+              // 'Met deze exit mis je altijd  de laatste sample
+                    // If Int(tSample) < 0 Then Exit Function
+                          if ( floor ( tSamplePosition ) < 0 ) { return "" ; }
+                    // If Int(tSample) + 1 > UBound(Samples) Then Exit Function
+                          CRelatedList* tSamples = tItem -> RelatedLists ( ) -> Item ( "Samples" ) ;
+                          if ( floor ( tSamplePosition ) + 1 > tSamples -> ListCount ( ) - 1 ) { return "" ; }
+              // Dim tSample1 As Double
+                    CItem* tSample1Item ;
+                    double tSample1Value ;
+              // Dim tSample2 As Double
+                    CItem* tSample2Item ;
+                    double tSample2Value ;
+              // Dim Interpoint As Double
+                    double tInterpoint ;
+              double tReturnValue ;
+              // Select Case Interpolation
+                    int tInterpolation = StringToInteger ( tItem -> ItemAttributes ( ) -> Item ( "Interpolation" ) -> Value ( ) ) ;
+                    // Case BlockInterpolation
+                          if  ( tInterpolation == 0 ) {
+                                // Value = Samples(Int(tSample))
+                                      CItem* tSampleItem = tSamples -> Item ( ( int ) floor ( tSamplePosition ) ) ;
+                                      tReturnValue = StringToDouble ( tSampleItem -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( )  ) ;
+                          }
+                    // Case LineInterpolation
+                          if ( tInterpolation == 1 ) {
+                              // tSample1 = Samples(Int(tSample))
+                                    tSample1Item = tSamples -> Item ( ( int ) floor ( tSamplePosition ) ) ;
+                                    tSample1Value = StringToDouble ( tSample1Item -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ) ;
+                              // tSample2 = Samples(Int(tSample) + 1)
+                                    tSample2Item = tSamples -> Item ( ( int ) floor ( tSamplePosition ) + 1 ) ;
+                                    tSample2Value = StringToDouble ( tSample2Item -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ) ;
+                              // Interpoint = tSample - Int(tSample)
+                                    tInterpoint = tSamplePosition - floor ( tSamplePosition ) ;
+                              // Value = tSample1 + (tSample2 - tSample1) * Interpoint
+                                    tReturnValue = tSample1Value + ( tSample2Value - tSample1Value ) * tInterpoint ;
+                          }
+                    // Case CurveInterpolation
+                          if ( tInterpolation == 2 ) {
+                              // 'Not supported yet: calculated as linear
+                              // tSample1 = Samples(Int(tSample))
+                                    tSample1Item = tSamples -> Item ( ( int ) floor ( tSamplePosition ) ) ;
+                                    tSample1Value = StringToDouble ( tSample1Item -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ) ;
+                              // tSample2 = Samples(Int(tSample) + 1)
+                                    tSample2Item = tSamples -> Item ( ( int ) floor ( tSamplePosition ) + 1 ) ;
+                                    tSample2Value = StringToDouble ( tSample2Item -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ) ;
+                              // Interpoint = tSample - Int(tSample)
+                                    tInterpoint = tSamplePosition - floor ( tSamplePosition ) ;
+                              // Value = tSample1 + (tSample2 - tSample1) * Interpoint
+                                    tReturnValue = tSample1Value + ( tSample2Value - tSample1Value ) * tInterpoint ;
+                          }
+              // End Select
+              // Value = Value * Amplifier
+                    double tAmplifier = StringToDouble ( tItem -> ItemAttributes ( ) -> Item ( "Amplifier" ) -> Value ( ) ) ;
+                    tReturnValue = tReturnValue * tAmplifier ;
+                    return DoubleToString ( tReturnValue ) ;
+         End  Method
+
+        Method  Sample  .  Load
+              // Dim i As Long
+                    int i ;
+              // Dim tFileNumber As Long
+                    HANDLE tFileHandle ;
+              // Dim tFilePosition As Long
+              // Dim tInteger As Integer
+                    short tShort ;
+              // Dim tByte As Byte
+                    char tByte ;
+              // tFileNumber = FreeFile
+              // Open FilePath For Binary As tFileNumber
+                    CString tFilePath = aThis -> ItemMethods ( ) -> ParentItem ( ) -> ItemAttributes ( ) -> Item ( "File Path" ) -> Value ( ) ;
+                    tFileHandle = CreateFile ( tFilePath , GENERIC_READ , FILE_SHARE_READ , 0 , OPEN_EXISTING , FILE_ATTRIBUTE_NORMAL , 0 ) ;
+                    if ( tFileHandle == INVALID_HANDLE_VALUE ) { return ; }
+              // For i = 1 To BytesToSkip
+                    CItem* tItem = aThis -> ItemMethods ( ) -> ParentItem ( ) ;
+                    int tBytesToSkip = StringToInteger ( tItem -> ItemAttributes ( ) -> Item ( "Bytes To Skip" ) -> Value ( ) ) ;
+                    DWORD tBytesRead ;
+                    for ( i = 1 ; i <= tBytesToSkip ; i ++ ) {
+                          // Get tFileNumber, , tByte
+                                ReadFile ( tFileHandle , & tByte , 1 , & tBytesRead , 0 ) ;
+                    }
+              // ReDim Samples((LOF(tFileNumber) - BytesToSkip) / 2)
+                    CRelatedList* tSamples = tItem -> RelatedLists ( ) -> Item ( "Samples" ) ;
+                    tSamples -> Clear ( ) ;
+              // For i = 1 To (LOF(tFileNumber) - BytesToSkip) / 2
+                    CItem* tSample ;
+                    // Get tFileNumber, , tInteger
+                    while ( ReadFile ( tFileHandle , &tShort , 2 , & tBytesRead , 0 ) ) {
+                          if ( tBytesRead == 0 ) { break ; } ;
+                          tSample = tSamples -> Add ( ) ;
+                          // Samples(i) = tInteger
+                                tSample -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ShortToString ( tShort ) ) ;
+                    }
+              // Close tFileNumber
+                    CloseHandle ( tFileHandle ) ;
+              // Loaded = True
+                    tItem -> ItemAttributes ( ) -> Item ( "Loaded" ) -> Value ( "True" ) ;
+        End  Method
+
+        Method  Sample  .  Unload
+              CItem*  tItem  =  aThis  ->  ItemMethods  (  )  ->  ParentItem  (  )  ;
+              CRelatedList*  tSamples  =  tItem  ->  RelatedLists  (  )  ->  Item  (  "Samples"  )  ;
+              tSamples  ->  Clear  (  )  ;
+        End  Method
+
+        Method  Override  Sample Operator  .  Result  .  Get
+              // If Sample Is Nothing Then Exit Property
+                    CItem* tItem = aThis -> ItemAttributes ( ) -> ParentItem ( ) ;
+                    CItem* tSample = tItem -> RelatedItems ( ) -> Item ( "Sample" ) -> Item ( ) ;
+                    if ( tSample == 0 ) { return "" ; }
+              // Result = Sample.Value(Time)
+                    CItem* tBase = tItem -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) ;
+                    CString tTime = tBase -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ;
+                    tSample -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tTime ) ;
+                    return tSample -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ;
+        End  Method

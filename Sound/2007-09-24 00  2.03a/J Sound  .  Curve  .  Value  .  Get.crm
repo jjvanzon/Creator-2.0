@@ -1,0 +1,80 @@
+              //  Declarations
+                    int  i  ;
+                    CItem*  tNodeA  ;
+                    CItem*  tNodeB  ;
+                    CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                    double  tTime  =  StringToDouble  (  tItem  ->  ItemAttributes  (  )  -> Item  (  "Time"  )  ->  Value  (  )  )  ;
+              //  Find  the  nodes  the  time  is  in  between
+                    CRelatedList*  tNodes  =  tItem  ->  RelatedLists  (  )  ->  Item  (  "Nodes"  )  ;
+                    CItem*  tNode  ;
+                    for  (  i  =  0  ;  i  <=  tNodes  ->  StorageCount  (  )  -  1  ;  i  ++  )  {
+                          if  (  tNodes  ->  PositionUsed  (  i  )  ==  TRUE  )  {
+                                tNode  =  tNodes  ->  Item  (  i  )  ;
+                                if  (  StringToDouble  (  tNode  -> ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  )  )  >  tTime  )  {
+                                      tNodeB  =  tNode  ;
+                                      break  ;
+                                }
+                                tNodeA  =  tNode  ;
+                          }
+                    }
+                    if  (  tNodeA  ==  0  ||  tNodeB  ==  0  )  {  return  ""  ;  }
+                //  Calculate the Value
+                      CString  tNodeType  =  tNodeA  ->  ItemAttributes  (  )  ->  Item  (  "Type"  )  ->  Value  (  )  ;
+                      if  (  tNodeType  ==  "0"  )  {
+                            //  Off Node Type
+                                  return  "0"  ;
+                      }
+                      if  (  tNodeType  ==  "1"  )  {
+                            //  Block Node Type
+                                  return  tNodeA  -> ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;
+                      }
+                      if  (  tNodeType  ==  "2"  )  {
+                            //  Line Node Type
+                                  double  tNodeATime  =  StringToDouble  (  tNodeA  ->  ItemAttributes  (  )  -> Item  (  "Time"  )  ->  Value  (  )  )  ;
+                                  double  tNodeBTime  =  StringToDouble  (  tNodeB  ->  ItemAttributes  (  )  -> Item  (  "Time"  )  ->  Value  (  )  )  ;
+                                  double  tNodeAValue  =  StringToDouble  (  tNodeA  ->  ItemAttributes  (  )  -> Item  (  "Value"  )  ->  Value  (  )  )  ;
+                                  if  (  tNodeBTime <= tNodeATime  )  {
+                                        return  DoubleToString (  tNodeAValue  )  ;
+                                  }
+                                  double  tNodeBValue  =  StringToDouble  (  tNodeB  ->  ItemAttributes  (  )  -> Item  (  "Value"  )  ->  Value  (  )  )  ;
+                                  return  DoubleToString  (  tNodeAValue  +  (  tNodeBValue  -  tNodeAValue  )  *  (  (  tTime  -  tNodeATime  )  /  (  tNodeBTime  -  tNodeATime  )  )  )  ;
+                      }
+                      /*
+                        Case CurveNodeType
+                            With JMathMisc.Interpolate
+                                .DerivedDirection = True
+                                'Times
+                                    .TimeMinus1 = tNodeA.Time
+                                    .Time0 = tNodeA.Time
+                                    .Time1 = tNodeB.Time
+                                    .Time2 = tNodeB.Time
+                                'Values
+                                    .ValueMinus1 = tNodeA.Value
+                                    .Value0 = tNodeA.Value
+                                    .Value1 = tNodeB.Value
+                                    .Value2 = tNodeB.Value
+                                'Result
+                                    .Time = aTime
+                                    Value = .Value
+                            End With
+                        Case DirectedNodeType
+                            With JMathMisc.Interpolate
+                                .DerivedDirection = False
+                                'Time
+                                    .TimeMinus1 = tNodeA.Time
+                                    .Time0 = tNodeA.Time
+                                    .Time1 = tNodeB.Time
+                                    .Time2 = tNodeB.Time
+                                'Value
+                                    .ValueMinus1 = tNodeA.Value
+                                    .Value0 = tNodeA.Value
+                                    .Value1 = tNodeB.Value
+                                    .Value2 = tNodeB.Value
+                                'Direction
+                                    .Direction0 = tNodeA.Direction
+                                    .Direction1 = tNodeB.Direction
+                                'Result
+                                    .Time = aTime
+                                    Value = .Value
+                            End With
+                      */

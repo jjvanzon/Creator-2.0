@@ -1,0 +1,12 @@
+; ExampleMethodLibrary.def : Declares the module parameters for the DLL.
+
+LIBRARY      "ExampleMethodLibrary"
+DESCRIPTION  'ExampleMethodLibrary Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+
+
+	SetObject      @2
+	OverrideGet      @3
+	OverrideSet    @4

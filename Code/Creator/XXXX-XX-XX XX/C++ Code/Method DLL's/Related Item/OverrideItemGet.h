@@ -1,0 +1,9 @@
+*aOverridden = TRUE ;
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tX  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "X"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tX  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              double  tXValue  =  StringToDouble  (  tX  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  DoubleToString  (  cos  (  tXValue  )  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;

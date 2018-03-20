@@ -1,0 +1,62 @@
+        //  Test  Methods  Of  All  Data  Object  Types
+
+              //  Attributes  :
+
+                    //  Override  Attribute  Get  :
+
+                          Method  Override  Add  .  Result  .  Get
+                              //MessageBox ( 0 , "Override  Attribute  Get  !" , "" , MB_OK ) ;
+                              return  aThis  ->  ValueBase  (  )  ;
+                          End  Method
+      
+                    //  Override  Attribute  Set  :
+      
+                          Method  Override  Add  .  Result  .  Set
+                              MessageBox ( 0 , "Override  Attribute  Set  !" , "" , MB_OK ) ;
+                              aThis  ->  ValueBase  (  aValue  )  ;
+                          End  Method
+      
+              //  Related  Items  :
+
+                    //  Override  Related  Item  Get  :
+      
+                          Method  Override  Add  .  Operand A  .  Get
+                              //  MessageBox ( 0 , "Override  Related  Item  Get  !" , "" , MB_OK ) ;
+                              return  aThis  ->  ItemBase  (  )  ;
+                          End  Method
+      
+                    //  Override  Related  Item  Set  :
+      
+                          Method  Override  Add  .  Operand A  .  Set
+                              MessageBox ( 0 , "Override  Related  Item  Set  !" , "" , MB_OK ) ;
+                              aThis  ->  ItemBase  (  aValue  )  ;
+                          End  Method
+            
+              //  Related  Lists:
+
+                    //  Override  List  Item  Get  :
+      
+                          Method  Override  Application  .  Workspaces  .  Item  .  Get
+                              //  MessageBox ( 0 , "Override  List  Item  Get  !" , "" , MB_OK ) ;
+                              return  aThis  ->  ItemBase  (  aIndex  )  ;
+                          End  Method
+      
+                    //  Override  List  Item  Set  :
+      
+                          Method  Override  Application  .  Workspaces  .  Item  .  Set
+                              MessageBox ( 0 , "Override  List  Item  Set  !" , "" , MB_OK ) ;
+                              aThis  ->  ItemBase  (  aIndex  ,  aValue  )  ;
+                          End  Method
+      
+                    //  Override  List  Initialize  Item  :
+      
+                          Method  Override  Application  .  Workspaces  .  Initialize  Item
+                              MessageBox ( 0 , "Override  List  Initialize  Item  !" , "" , MB_OK ) ;
+                              aThis  ->  InitializeItemBase  (  aIndex  )  ;
+                          End  Method
+      	
+              //  Custom  Method  :
+
+                    Method  Wave File Output  .  Start
+                        MessageBox ( 0 , "Custom  Method!" , "" , MB_OK ) ;
+                    End  Method

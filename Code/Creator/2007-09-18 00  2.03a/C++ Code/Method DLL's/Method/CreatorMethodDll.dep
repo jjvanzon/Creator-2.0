@@ -1,0 +1,134 @@
+# Microsoft Developer Studio Generated Dependency File, included by CreatorMethodDll.mak
+
+..\..\Creator\cccCreator.cpp : \
+	"..\..\Creator\cccCreator.h"\
+	"..\..\Creator\CDiskStorageClass.h"\
+	"..\..\Creator\CDiskStorageItemAttribute.h"\
+	"..\..\Creator\CDiskStorageItemAttributes.h"\
+	"..\..\Creator\CDiskStorageRelatedItem.h"\
+	"..\..\Creator\CDiskStorageRelatedItems.h"\
+	"..\..\Creator\CDiskStorageRelatedList.h"\
+	"..\..\Creator\CDiskStorageRelatedLists.h"\
+	"..\..\Creator\CItemAttributeOnDisk.h"\
+	"..\..\Creator\CItemAttributesOnDisk.h"\
+	"..\..\Creator\CItemOnDisk.h"\
+	"..\..\Creator\Creator.h"\
+	"..\..\Creator\CRelatedItemOnDisk.h"\
+	"..\..\Creator\CRelatedItemsOnDisk.h"\
+	"..\..\Creator\CRelatedListOnDisk.h"\
+	"..\..\Creator\CRelatedListsOnDisk.h"\
+	"..\..\Creator\DeclareClasses.h"\
+	"..\..\Creator\FileFunctions.h"\
+	"..\..\Creator\FriendGlobal.h"\
+	"..\..\Creator\gccCreator.h"\
+	"..\..\Creator\ggcCreator.h"\
+	"..\..\Creator\gggCreator.h"\
+	"..\..\Creator\StdAfx.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CFlatListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CHoleListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CStackOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\FlatListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\HoleListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\StackInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\stdafx.h"\
+	
+
+.\CreatorMethodDll.cpp : \
+	"..\..\Creator\cccCreator.h"\
+	"..\..\Creator\FileFunctions.h"\
+	"..\..\Creator\FriendGlobal.h"\
+	"..\..\Creator\StdAfx.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\FlatListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\HoleListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\StackInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\stdafx.h"\
+	"..\DeclareClasses.h"\
+	".\CreatorMethodDll.h"\
+	".\ExecuteMethod.h"\
+	".\StdAfx.h"\
+	
+
+.\CreatorMethodDll.rc : \
+	".\res\CreatorMethodDll.rc2"\
+	
+
+..\..\Creator\FileFunctions.cpp : \
+	"..\..\Creator\cccCreator.h"\
+	"..\..\Creator\CDiskStorageClass.h"\
+	"..\..\Creator\CDiskStorageItemAttribute.h"\
+	"..\..\Creator\CDiskStorageItemAttributes.h"\
+	"..\..\Creator\CDiskStorageRelatedItem.h"\
+	"..\..\Creator\CDiskStorageRelatedItems.h"\
+	"..\..\Creator\CDiskStorageRelatedList.h"\
+	"..\..\Creator\CDiskStorageRelatedLists.h"\
+	"..\..\Creator\CItemAttributeOnDisk.h"\
+	"..\..\Creator\CItemAttributesOnDisk.h"\
+	"..\..\Creator\CItemOnDisk.h"\
+	"..\..\Creator\Creator.h"\
+	"..\..\Creator\CRelatedItemOnDisk.h"\
+	"..\..\Creator\CRelatedItemsOnDisk.h"\
+	"..\..\Creator\CRelatedListOnDisk.h"\
+	"..\..\Creator\CRelatedListsOnDisk.h"\
+	"..\..\Creator\DeclareClasses.h"\
+	"..\..\Creator\FileFunctions.h"\
+	"..\..\Creator\FriendGlobal.h"\
+	"..\..\Creator\gccCreator.h"\
+	"..\..\Creator\ggcCreator.h"\
+	"..\..\Creator\gggCreator.h"\
+	"..\..\Creator\StdAfx.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CFlatListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CHoleListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CStackOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\FlatListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\HoleListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\StackInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\stdafx.h"\
+	
+
+"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\FlatListInMemory.cpp" : \
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CFlatListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CHoleListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CStackOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\declareclasses.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\FlatListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\friendglobal.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\HoleListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\paper.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\StackInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\stdafx.h"\
+	
+
+..\FriendGlobal.cpp : \
+	"..\FriendGlobal.h"\
+	"..\stdafx.h"\
+	
+
+"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\HoleListInMemory.cpp" : \
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CFlatListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CHoleListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CStackOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\declareclasses.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\FlatListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\friendglobal.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\HoleListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\paper.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\StackInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\stdafx.h"\
+	
+
+"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\StackInMemory.cpp" : \
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CFlatListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CHoleListOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\CStackOnDisk.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\declareclasses.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\FlatListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\friendglobal.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\HoleListInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\paper.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\StackInMemory.h"\
+	"..\..\..\..\..\..\Storage\Basic Data Structures\2007-09-18 00  2.03a\stdafx.h"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

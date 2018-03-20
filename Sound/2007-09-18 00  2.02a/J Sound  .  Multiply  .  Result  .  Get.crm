@@ -1,0 +1,39 @@
+            // If OperandA Is Nothing Or OperandB Is Nothing Then Exit Property
+                // Extra
+                    CItem* tItem = aThis -> ItemAttributes ( ) -> ParentItem ( ) ;
+                // Extra
+                    CItem* tOperandA = tItem -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) ;
+                if ( tOperandA == 0 )  { return "" ; }
+                // Extra
+                    CItem* tOperandB = tItem -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) ;
+                if ( tOperandB == 0 )  { return "" ; }
+            // Extra
+                CString tItemBaseTime = tItem -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ;
+            // OperandA.Time = Time
+                tOperandA -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+            // OperandB.Time = Time
+                tOperandB -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+            // Extra
+                CItem* tAxis = tItem -> RelatedItems ( ) -> Item ( "Axis" ) -> Item ( ) ;
+            // If Axis Is Nothing Then
+                if ( tAxis == 0 ) {
+                    // Result = OperandA.Result  * OperandB.Result
+                        return DoubleToString (
+                            StringToDouble ( tOperandA -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) *
+                            StringToDouble ( tOperandB -> ItemAttributes ( ) -> Item ( "Result" )  -> Value ( ) )
+                            ) ;
+                }
+            // Else
+                else {
+                    // Dim tAxis As Double
+                        // 
+                    // Axis.Time = Time
+                        tAxis -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                    // tAxis = Axis.Result
+                        double tAxisResult = StringToDouble ( tAxis -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                    // Extra
+                        double tOperandAResult = StringToDouble ( tOperandA -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        double tOperandBResult = StringToDouble ( tOperandB -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                    // Result = ((OperandA.Result - tAxis) * OperandB.Result) + tAxis
+                        return DoubleToString ( ( tOperandAResult - tAxisResult ) * tOperandBResult + tAxisResult ) ;
+                }

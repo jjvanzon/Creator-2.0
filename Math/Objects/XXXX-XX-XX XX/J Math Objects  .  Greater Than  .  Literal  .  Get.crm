@@ -1,0 +1,3 @@
+                              CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tResult  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Result"  )  ->  Item  (  )  ;
+                              return  tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  ;

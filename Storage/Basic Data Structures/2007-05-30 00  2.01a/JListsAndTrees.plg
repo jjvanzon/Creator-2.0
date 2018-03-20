@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: JListsAndTrees - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6EF.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /FR"Debug/" /Fp"Debug/JListsAndTrees.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Fleet\Jan-Joost van Zon\Programming\Sigma\Data\Lists and Trees\C++\FlatListInMemory.cpp"
+"C:\Fleet\Jan-Joost van Zon\Programming\Sigma\Data\Lists and Trees\C++\HoleListInMemory.cpp"
+"C:\Fleet\Jan-Joost van Zon\Programming\Sigma\Data\Lists and Trees\C++\Paper.cpp"
+"C:\Fleet\Jan-Joost van Zon\Programming\Sigma\Data\Lists and Trees\C++\StackInMemory.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6EF.tmp"" 
+Creating temporary file "C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6F0.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/JListsAndTrees.pdb" /debug /machine:I386 /def:".\JListsAndTrees.def" /out:"Debug/JListsAndTrees.dll" /implib:"Debug/JListsAndTrees.lib" /pdbtype:sept 
+".\Debug\FlatListInMemory.obj"
+".\Debug\FriendGlobal.obj"
+".\Debug\HoleListInMemory.obj"
+".\Debug\JListsAndTrees.obj"
+".\Debug\Paper.obj"
+".\Debug\StackInMemory.obj"
+".\Debug\StdAfx.obj"
+".\Debug\JListsAndTrees.res"
+]
+Creating command line "link.exe @"C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6F0.tmp""
+<h3>Output Window</h3>
+Compiling...
+FlatListInMemory.cpp
+Generating Code...
+Compiling...
+HoleListInMemory.cpp
+Paper.cpp
+StackInMemory.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+JListsAndTrees.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

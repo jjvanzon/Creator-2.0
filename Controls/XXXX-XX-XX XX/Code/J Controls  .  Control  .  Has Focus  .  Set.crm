@@ -1,0 +1,14 @@
+                  //  Translate  ...
+                  /*
+                  If Not Screen Is Nothing Then
+                        If sHasFocus Then
+                              With Screen.FocusedControls
+                                    IdInScreenFocusedControls = .Add
+                                    Set .Item(IdInScreenFocusedControls) = This
+                              End With
+                        Else
+                              Screen.FocusedControls.Remove IdInScreenFocusedControls
+                        End If
+                  End If
+                  RaiseEvent HasFocusChanged
+                  */

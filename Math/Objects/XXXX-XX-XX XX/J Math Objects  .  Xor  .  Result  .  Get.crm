@@ -1,0 +1,10 @@
+                              CItem*  tItem  =  aThis  ->  RelatedItems  (  )  ->  ParentItem  (  )  ;
+                              CItem*  tA  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "A"  )  ->  Item  (  )  ;
+                              CItem*  tB  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "B"  )  ->  Item  (  )  ;
+                              CItem*  tResult  =  aThis  ->  ItemBase  (  )  ;
+                              if  (  tA  ==  0  ||  tB  ==  0  ||  tResult  ==  0  )  {  return  0  ;  }
+                              bool  tAValue  =  StringToBoolean  (  tA  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              bool  tBValue  =  StringToBoolean  (  tB  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  )  )  ;
+                              CString  tResultValue  =  BooleanToString  (  tAValue  &&  !  tBValue  ||  !  tAValue  &&  tBValue  )  ;
+                              tResult  ->  ItemAttributes  (  )  ->  Item  (  "Value"  )  ->  Value  (  tResultValue  )  ;
+                              return  tResult  ;

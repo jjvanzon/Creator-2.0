@@ -1,0 +1,64 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CreatorMethodDll - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/CreatorMethodDll.res" /d "_DEBUG" /d "_AFXDLL" "E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\2007-09-18 00  2.03a\C++ Code\METHOD DLL'S\METHOD\CreatorMethodDll.rc"" 
+Creating temporary file "C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6E0.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /FR"Debug/" /Fp"Debug/CreatorMethodDll.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /EHa /c 
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\2007-09-18 00  2.03a\C++ Code\Creator\cccCreator.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\2007-09-18 00  2.03a\C++ Code\METHOD DLL'S\METHOD\CreatorMethodDll.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\2007-09-18 00  2.03a\C++ Code\Creator\FileFunctions.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Storage\Basic Data Structures\2007-09-18 00  2.03a\FlatListInMemory.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\2007-09-18 00  2.03a\C++ Code\METHOD DLL'S\FriendGlobal.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Storage\Basic Data Structures\2007-09-18 00  2.03a\HoleListInMemory.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Storage\Basic Data Structures\2007-09-18 00  2.03a\StackInMemory.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6E0.tmp"" 
+Creating temporary file "C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6E1.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /FR"Debug/" /Fp"Debug/CreatorMethodDll.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /EHa /c 
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\2007-09-18 00  2.03a\C++ Code\METHOD DLL'S\METHOD\StdAfx.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6E1.tmp"" 
+Creating temporary file "C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6E2.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/CreatorMethodDll.pdb" /debug /machine:I386 /def:".\CreatorMethodDll.def" /out:"Debug/CreatorMethodDll.dll" /implib:"Debug/CreatorMethodDll.lib" /pdbtype:sept 
+".\Debug\cccCreator.obj"
+".\Debug\CreatorMethodDll.obj"
+".\Debug\FileFunctions.obj"
+".\Debug\FlatListInMemory.obj"
+".\Debug\FriendGlobal.obj"
+".\Debug\HoleListInMemory.obj"
+".\Debug\StackInMemory.obj"
+".\Debug\StdAfx.obj"
+".\Debug\CreatorMethodDll.res"
+]
+Creating command line "link.exe @"C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP6E2.tmp""
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+cccCreator.cpp
+CreatorMethodDll.cpp
+FileFunctions.cpp
+FlatListInMemory.cpp
+FriendGlobal.cpp
+HoleListInMemory.cpp
+StackInMemory.cpp
+Generating Code...
+Linking...
+   Creating library Debug/CreatorMethodDll.lib and object Debug/CreatorMethodDll.exp
+
+
+
+<h3>Results</h3>
+CreatorMethodDll.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

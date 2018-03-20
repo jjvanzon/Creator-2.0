@@ -1,0 +1,12 @@
+; CreatorRelatedListMethodDll.def : Declares the module parameters for the DLL.
+
+LIBRARY      "CreatorRelatedListMethodDll"
+DESCRIPTION  'CreatorRelatedListMethodDll Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+
+	OverrideItemGet @2
+	OverrideItemSet @3
+	OverrideInitializeItem @4
+

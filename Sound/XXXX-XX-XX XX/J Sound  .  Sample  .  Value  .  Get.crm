@@ -1,0 +1,69 @@
+              CItem* tItem = aThis -> ItemAttributes ( ) -> ParentItem ( ) ;
+              // If Not Loaded Or Not Active Then Exit Function
+                    bool tLoaded = StringToBoolean ( tItem -> ItemAttributes ( ) -> Item ( "Loaded" ) -> Value ( ) ) ;
+                    if ( ! tLoaded ) { return "" ; }
+                    bool tActive = StringToBoolean ( tItem -> ItemAttributes ( ) -> Item ( "Active" ) -> Value ( ) ) ;
+                    if ( ! tActive ) { return "" ; }
+              // If RealTimePerSampleTime = 0 Then Exit Function
+                    double tRealTimePerSampleTime = StringToDouble ( tItem -> ItemAttributes ( ) -> Item ( "Real Time Per Virtual Time" ) -> Value ( ) ) ;
+                    if ( tRealTimePerSampleTime == 0 ) { return "" ; }
+              // Dim tSample As Double
+              // tSample = (aTime * SamplingRate) / RealTimePerSampleTime
+                    double tTime = StringToDouble ( tItem -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ) ;
+                    double tSamplingRate = StringToDouble ( tItem -> ItemAttributes ( ) -> Item ( "Sampling Rate" ) -> Value ( ) ) ;
+                    double tSamplePosition = ( tTime * tSamplingRate ) / tRealTimePerSampleTime ;
+              // 'Met deze exit mis je altijd  de laatste sample
+                    // If Int(tSample) < 0 Then Exit Function
+                          if ( floor ( tSamplePosition ) < 0 ) { return "" ; }
+                    // If Int(tSample) + 1 > UBound(Samples) Then Exit Function
+                          CRelatedList* tSamples = tItem -> RelatedLists ( ) -> Item ( "Samples" ) ;
+                          if ( floor ( tSamplePosition ) + 1 > tSamples -> ListCount ( ) - 1 ) { return "" ; }
+              // Dim tSample1 As Double
+                    CItem* tSample1Item ;
+                    double tSample1Value ;
+              // Dim tSample2 As Double
+                    CItem* tSample2Item ;
+                    double tSample2Value ;
+              // Dim Interpoint As Double
+                    double tInterpoint ;
+              double tReturnValue ;
+              // Select Case Interpolation
+                    int tInterpolation = StringToInteger ( tItem -> ItemAttributes ( ) -> Item ( "Interpolation" ) -> Value ( ) ) ;
+                    // Case BlockInterpolation
+                          if  ( tInterpolation == 0 ) {
+                                // Value = Samples(Int(tSample))
+                                      CItem* tSampleItem = tSamples -> Item ( ( int ) floor ( tSamplePosition ) ) ;
+                                      tReturnValue = StringToDouble ( tSampleItem -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( )  ) ;
+                          }
+                    // Case LineInterpolation
+                          if ( tInterpolation == 1 ) {
+                              // tSample1 = Samples(Int(tSample))
+                                    tSample1Item = tSamples -> Item ( ( int ) floor ( tSamplePosition ) ) ;
+                                    tSample1Value = StringToDouble ( tSample1Item -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ) ;
+                              // tSample2 = Samples(Int(tSample) + 1)
+                                    tSample2Item = tSamples -> Item ( ( int ) floor ( tSamplePosition ) + 1 ) ;
+                                    tSample2Value = StringToDouble ( tSample2Item -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ) ;
+                              // Interpoint = tSample - Int(tSample)
+                                    tInterpoint = tSamplePosition - floor ( tSamplePosition ) ;
+                              // Value = tSample1 + (tSample2 - tSample1) * Interpoint
+                                    tReturnValue = tSample1Value + ( tSample2Value - tSample1Value ) * tInterpoint ;
+                          }
+                    // Case CurveInterpolation
+                          if ( tInterpolation == 2 ) {
+                              // 'Not supported yet: calculated as linear
+                              // tSample1 = Samples(Int(tSample))
+                                    tSample1Item = tSamples -> Item ( ( int ) floor ( tSamplePosition ) ) ;
+                                    tSample1Value = StringToDouble ( tSample1Item -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ) ;
+                              // tSample2 = Samples(Int(tSample) + 1)
+                                    tSample2Item = tSamples -> Item ( ( int ) floor ( tSamplePosition ) + 1 ) ;
+                                    tSample2Value = StringToDouble ( tSample2Item -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ) ;
+                              // Interpoint = tSample - Int(tSample)
+                                    tInterpoint = tSamplePosition - floor ( tSamplePosition ) ;
+                              // Value = tSample1 + (tSample2 - tSample1) * Interpoint
+                                    tReturnValue = tSample1Value + ( tSample2Value - tSample1Value ) * tInterpoint ;
+                          }
+              // End Select
+              // Value = Value * Amplifier
+                    double tAmplifier = StringToDouble ( tItem -> ItemAttributes ( ) -> Item ( "Amplifier" ) -> Value ( ) ) ;
+                    tReturnValue = tReturnValue * tAmplifier ;
+                    return DoubleToString ( tReturnValue ) ;

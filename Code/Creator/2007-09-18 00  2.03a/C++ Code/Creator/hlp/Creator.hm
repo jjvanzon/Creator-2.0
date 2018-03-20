@@ -1,0 +1,16 @@
+ 
+// Commands (ID_* and IDM_*) 
+ 
+// Prompts (IDP_*) 
+ 
+// Resources (IDR_*) 
+HIDR_CREATORSOURCEFILE_TMPL             0x20067
+HIDR_TREECONTROL_TMPL                   0x2006B
+HIDR_MAINFRAME                          0x20080
+ 
+// Dialogs (IDD_*) 
+HIDD_ABOUTBOX                           0x20064
+HIDD_CREATORSOURCEFILE_FORM             0x20066
+HIDD_TREECONTROL_FORM                   0x2006A
+ 
+// Frame Controls (IDW_*) 

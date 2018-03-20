@@ -1,0 +1,22 @@
+                  //  If Level Is Nothing Then Exit Property
+                        CItem*  tItem  =  aThis  ->  ItemAttributes  (  )  ->  ParentItem  (  )  ;
+                        CItem*  tBase  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        CItem*  tLevel  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Level"  )  ->  Item  (  )  ;
+                        CItem*  tTimeMultiplier  =  tItem  ->  RelatedItems  (  )  ->  Item  (  "Time Multiplier"  )  ->  Item  (  )  ;
+                        double  tTime  =  StringToDouble  ( tBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  -> Value  (  )  )  ;
+                        if  (  tLevel  ==  0  )  {  return  ""  ;  }  
+                  //  Dim tTimeMultiplier As Double
+                        double  tTimeMultiplierResult  =  0  ;
+                  //  If Not TimeMultiplier Is Nothing Then
+                        if  (  tTimeMultiplier  !=  0  )  {
+                              //  TimeMultiplier.Time = Time
+                                    CItem*  tTimeMultiplierBase  =  tTimeMultiplier  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                                    tTimeMultiplierBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  )  )  ;
+                              //  tTimeMultiplier = TimeMultiplier.Result
+                                    tTimeMultiplierResult  =  StringToDouble  ( tTimeMultiplier  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  -> Value  (  )  )  ;
+                        }
+                  //  Level.Time = Time + tTimeMultiplier
+                        CItem*  tLevelBase  =  tLevel  ->  RelatedItems  (  )  ->  Item  (  "Base"  )  ->  Item  (  )  ;
+                        tLevelBase  ->  ItemAttributes  (  )  ->  Item  (  "Time"  )  ->  Value  (  DoubleToString  (  tTime  *  tTimeMultiplierResult  )  )  ;
+                  //  Result = Level.Result
+                        return  tLevel  ->  ItemAttributes  (  )  ->  Item  (  "Result"  )  ->  Value  (  )  ;

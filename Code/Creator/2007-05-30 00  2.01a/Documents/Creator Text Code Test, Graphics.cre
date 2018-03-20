@@ -1,0 +1,8 @@
+Class  Point
+Class  Line
+
+Point  -->  X  (  Double  )
+Point  -->  Y  (  Double  )
+
+Line  (  Lines ( as point a )  )  n  -->  1  Point  (  Point A  )
+Line  (  Lines ( as point b )  )  n  -->  1  Point  (  Point B  )

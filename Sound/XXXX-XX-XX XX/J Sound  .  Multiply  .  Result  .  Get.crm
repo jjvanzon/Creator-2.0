@@ -1,0 +1,22 @@
+                  CItem* tItem = aThis -> ItemAttributes ( ) -> ParentItem ( ) ;
+                  CItem* tOperandA = tItem -> RelatedItems ( ) -> Item ( "Operand A" ) -> Item ( ) ;
+                  if ( tOperandA == 0 )  { return "" ; }
+                  CItem* tOperandB = tItem -> RelatedItems ( ) -> Item ( "Operand B" ) -> Item ( ) ;
+                  if ( tOperandB == 0 )  { return "" ; }
+                  CString tItemBaseTime = tItem -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ;
+                  tOperandA -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                  tOperandB -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                  CItem* tAxis = tItem -> RelatedItems ( ) -> Item ( "Axis" ) -> Item ( ) ;
+                  if ( tAxis == 0 ) {
+                        return DoubleToString (
+                              StringToDouble ( tOperandA -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) *
+                              StringToDouble ( tOperandB -> ItemAttributes ( ) -> Item ( "Result" )  -> Value ( ) )
+                          ) ;
+                  }
+                  else {
+                        tAxis -> RelatedItems ( ) -> Item ( "Base" ) -> Item ( ) -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tItemBaseTime ) ;
+                        double tAxisResult = StringToDouble ( tAxis -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        double tOperandAResult = StringToDouble ( tOperandA -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        double tOperandBResult = StringToDouble ( tOperandB -> ItemAttributes ( ) -> Item ( "Result" ) -> Value ( ) ) ;
+                        return DoubleToString ( ( tOperandAResult - tAxisResult ) * tOperandBResult + tAxisResult ) ;
+                  }

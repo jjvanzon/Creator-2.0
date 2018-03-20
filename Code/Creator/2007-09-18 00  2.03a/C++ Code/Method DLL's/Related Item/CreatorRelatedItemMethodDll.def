@@ -1,0 +1,11 @@
+; CreatorRelatedItemMethodDll.def : Declares the module parameters for the DLL.
+
+LIBRARY      "CreatorRelatedItemMethodDll"
+DESCRIPTION  'CreatorRelatedItemMethodDll Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+
+	OverrideItemGet @2
+	OverrideItemSet @3
+

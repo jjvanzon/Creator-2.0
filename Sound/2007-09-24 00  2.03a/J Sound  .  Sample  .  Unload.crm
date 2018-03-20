@@ -1,0 +1,3 @@
+              CItem*  tItem  =  aThis  ->  ItemMethods  (  )  ->  ParentItem  (  )  ;
+              CRelatedList*  tSamples  =  tItem  ->  RelatedLists  (  )  ->  Item  (  "Samples"  )  ;
+              tSamples  ->  Clear  (  )  ;

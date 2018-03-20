@@ -1,0 +1,9 @@
+              // If Sample Is Nothing Then Exit Property
+                    CItem* tItem = aThis -> RelatedItems ( ) -> ParentItem ( ) ;
+                    CItem* tSample = tItem -> RelatedItems ( ) -> Item ( "Sample" ) ;
+                    if ( tSample == 0 ) { return "" ; }
+              // Result = Sample.Value(Time)
+                    CItem* tBase = tItem -> RelatedItems ( ) -> Item ( "Base" ) ;
+                    CString tTime = tBase -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( ) ;
+                    tSample -> ItemAttributes ( ) -> Item ( "Time" ) -> Value ( tTime ) ;
+                    return tSample -> ItemAttributes ( ) -> Item ( "Value" ) -> Value ( ) ;

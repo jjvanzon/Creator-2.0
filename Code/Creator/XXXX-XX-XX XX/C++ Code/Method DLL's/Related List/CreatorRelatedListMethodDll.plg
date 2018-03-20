@@ -1,0 +1,64 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CreatorRelatedListMethodDll - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/CreatorRelatedListMethodDll.res" /d "_DEBUG" /d "_AFXDLL" "E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\XXXX-XX-XX XX\C++ Code\METHOD DLL'S\RELATED LIST METHOD DLL\CreatorRelatedListMethodDll.rc"" 
+Creating temporary file "C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP577.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"Debug/CreatorRelatedListMethodDll.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\XXXX-XX-XX XX\C++ Code\Creator\cccCreator.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\XXXX-XX-XX XX\C++ Code\METHOD DLL'S\RELATED LIST METHOD DLL\CreatorRelatedListMethodDll.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\XXXX-XX-XX XX\C++ Code\Creator\FileFunctions.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Storage\Basic Data Structures\XXXX-XX-XX XX\FlatListInMemory.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\XXXX-XX-XX XX\C++ Code\METHOD DLL'S\FriendGlobal.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Storage\Basic Data Structures\XXXX-XX-XX XX\HoleListInMemory.cpp"
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Storage\Basic Data Structures\XXXX-XX-XX XX\StackInMemory.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP577.tmp"" 
+Creating temporary file "C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP578.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"Debug/CreatorRelatedListMethodDll.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\Bulk\Jan-Joost van Zon\Computer Programming\1. Systems\2. Code\1. Software System\XXXX-XX-XX XX\Code\Creator\XXXX-XX-XX XX\C++ Code\METHOD DLL'S\RELATED LIST METHOD DLL\StdAfx.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP578.tmp"" 
+Creating temporary file "C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP579.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/CreatorRelatedListMethodDll.pdb" /debug /machine:I386 /def:".\CreatorRelatedListMethodDll.def" /out:"Debug/CreatorRelatedListMethodDll.dll" /implib:"Debug/CreatorRelatedListMethodDll.lib" /pdbtype:sept 
+".\Debug\cccCreator.obj"
+".\Debug\CreatorRelatedListMethodDll.obj"
+".\Debug\FileFunctions.obj"
+".\Debug\FlatListInMemory.obj"
+".\Debug\FriendGlobal.obj"
+".\Debug\HoleListInMemory.obj"
+".\Debug\StackInMemory.obj"
+".\Debug\StdAfx.obj"
+".\Debug\CreatorRelatedListMethodDll.res"
+]
+Creating command line "link.exe @"C:\DOCUME~1\JAN-JO~1\LOCALS~1\Temp\RSP579.tmp""
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+cccCreator.cpp
+CreatorRelatedListMethodDll.cpp
+FileFunctions.cpp
+FlatListInMemory.cpp
+FriendGlobal.cpp
+HoleListInMemory.cpp
+StackInMemory.cpp
+Generating Code...
+Linking...
+   Creating library Debug/CreatorRelatedListMethodDll.lib and object Debug/CreatorRelatedListMethodDll.exp
+
+
+
+<h3>Results</h3>
+CreatorRelatedListMethodDll.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
