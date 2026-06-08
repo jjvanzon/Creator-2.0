@@ -1,11 +1,11 @@
 Creator 2.0
 ===========
 
-*JJ van Zon, 2027-06-08*
+*JJ van Zon, 2026-06-08*
 
 Experimental __model-driven__ programming language written in `2007` with `Visual C++ 6.0`.
 
-Started off with high hopes, but left: an interesting quirky experiment, an obscure project out of a series I'd like to call: "Not for Lack of Trying". `Creator` is the name, because well it was meant for creating stuff. I explored a few interesting concepts with it, I otherwise would have not.
+Started off with high hopes, but left behind an interesting quirky experiment, an obscure project out of a series I'd like to call: "Not for Lack of Trying". `Creator` is the name, because well it was meant for creating stuff. I explored a few interesting concepts with it, I otherwise would have not.
 
 __Contents__
 
@@ -18,7 +18,7 @@ __Contents__
 - [Rewritten in Itself](#rewritten-in-itself)
 - [Tree Control](#tree-control)
 - [Prototype Apps](#prototype-apps)
-- [Names - Short and Long Spaces](#names---short-and-long-spaces)
+- [Names with Short and Long Spaces](#names-with-short-and-long-spaces)
 - [C++ Base](#c-base)
 - [C++ Methods](#c-methods)
 - [Parser](#parser)
@@ -37,7 +37,7 @@ There are some third party files included, deemed fair-use. These are: generated
 Code Lives Here
 ---------------
 
-The main code is a bit burried in the folders, so here are some links to the it:
+The main code is a bit burried in the folders, so here are some links to it:
 
 - [C++ Code](./Code/Creator/XXXX-XX-XX%20XX/C++%20Code/)
 - [Creator Code](./Code/Creator/XXXX-XX-XX%20XX/Creator%20Code/)
@@ -76,6 +76,9 @@ This is example code of a model that could work as the base of your program:
     Order Item  (  Order Items  )  n  -->  1  Product  (  Product  )
 ```
 
+*Hint:* Weird spacing explained below.
+
+
 Indentation Style
 -----------------
 
@@ -103,7 +106,7 @@ The engine is reprogrammed in itself several times going from pure `C++` to dyna
 
 It was rewritten about 7 times with different layers of genericity, until arriving at a layer where the engine could use a text file with `Creator` code to instantiate `Creator` objects. Fully loose from the `C++` base (well, mostly).
 
-Thea idea was that I define the absolute bare essentials in `C++`, while the more high-level features are all described using the `Creator` programming language itself.
+The idea was that I define the absolute bare essentials in `C++`, while the more high-level features are all described using the `Creator` programming language itself.
 
 
 Tree Control
@@ -126,14 +129,14 @@ Several prototype apps were built. The __Sound__ app is functional, though maybe
 - The Creator Model itself
 
 
-Names - Short and Long Spaces
------------------------------
+Names with Short and Long Spaces
+--------------------------------
 
-I wanted to allow spaces inside  __names__ in the code, which most languages intentionally avoid (for good reason). The idea was that with spaces in identifiers, names could immediately stand in for user-friendly texts inside a user interface.
+I wanted to allow spaces inside __names__ in the code, which most languages intentionally avoid (for good reason). The idea was that with spaces in identifiers, names could immediately stand in for user-friendly texts inside a user interface.
 
 This meant not only could you use spaces. A name could in fact contain *any* character, even ones that would conflict with the language. An identifier could even be `>` or `+`.
 
-To be able to keep the syntax simple and easy to parse, I came up with this: You'd need to separate tokes by double spaces. 
+To be able to keep the syntax simple and easy to parse, I came up with this: You'd need to separate tokens by double spaces. 
 
 In the code editor, the double spaces then came to sort of stand in for a normal space, while the single space was a sort of "short space" you can use in your identifiers. 
 
@@ -167,7 +170,7 @@ The text parser for the `Creator` code is written in `C++` itself, so there goes
 Data Structures Base Library
 ----------------------------
 
-Some propriety data structures were programmed to keep lists and trees alive. They were based on `CArray<T>` doing most of the work.
+Some proprietary data structures were programmed to keep lists and trees alive. They were based on `CArray<T>` doing most of the work.
 
 
 Memory Leaks
