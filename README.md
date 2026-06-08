@@ -76,9 +76,6 @@ This is example code of a model that could work as the base of your program:
     Order Item  (  Order Items  )  n  -->  1  Product  (  Product  )
 ```
 
-*Hint:* Weird spacing explained below.
-
-
 Indentation Style
 -----------------
 
