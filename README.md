@@ -5,7 +5,7 @@ Creator 2.0
 
 Experimental __model-driven__ programming language written in `2007` with `Visual C++ 6.0`.
 
-Started off with high hopes, but left behind an interesting quirky experiment, an obscure project out of a series I'd like to call: "Not for Lack of Trying". `Creator` is the name, because well it was meant for creating stuff. I explored a few interesting concepts with it, I otherwise would have not.
+Started off with high hopes, but left: an interesting quirky experiment, an obscure project out of a series I'd like to call: "Not for Lack of Trying". `Creator` is the name, because well it was meant for creating stuff. I explored a few interesting concepts with it, I otherwise would not have.
 
 __Contents__
 
@@ -39,7 +39,7 @@ Code Lives Here
 
 The main code is a bit burried in the folders, so here are some links to it:
 
-- [C++ Code](./Code/Creator/XXXX-XX-XX%20XX/C++%20Code/)
+- [C++ Code](./Code/Creator/XXXX-XX-XX%20XX/C++%20Code/Creator/)
 - [Creator Code](./Code/Creator/XXXX-XX-XX%20XX/Creator%20Code/)
 
 
@@ -79,7 +79,7 @@ This is example code of a model that could work as the base of your program:
 Indentation Style
 -----------------
 
-I had an uncommon indentation style, where a *title comment* would in my view be more important than the code itself. So after each title comment, I'd indent. This repo's code is full of that, so I thought I'd just mention that quirk, for the sake of mentioning quirks.
+I had an uncommon indentation style, where a *comment* would in my view be more important than the code itself. So after each comment, I'd indent. This repo's code is full of that, so I thought I'd just mention that quirk, for the sake of mentioning quirks.
 
 
 Model-Driven
@@ -103,7 +103,7 @@ The engine is reprogrammed in itself several times going from pure `C++` to dyna
 
 It was rewritten about 7 times with different layers of genericity, until arriving at a layer where the engine could use a text file with `Creator` code to instantiate `Creator` objects. Fully loose from the `C++` base (well, mostly).
 
-The idea was that I define the absolute bare essentials in `C++`, while the more high-level features are all described using the `Creator` programming language itself.
+The idea was that I define the absolute bare essentials in `C++`, while the more high-level features are all programmed using the `Creator` programming language itself.
 
 
 Tree Control
