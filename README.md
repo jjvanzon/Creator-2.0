@@ -3,6 +3,8 @@ Creator 2.0
 
 *JJ van Zon, 2026-06-08*
 
+![Outlined wood-carved tree shape, decorated with schematics as ornaments surrounded by faded code samples and emblems](creator-2.0-promo-pic.png)
+
 Experimental __model-driven__ programming language written in `2007` with `Visual C++ 6.0`.
 
 Started off with high hopes, but left: an interesting quirky experiment, an obscure project out of a series I'd like to call: "Not for Lack of Trying". `Creator` is the name, because well it was meant for creating stuff. I explored a few interesting concepts with it, I otherwise would not have.
